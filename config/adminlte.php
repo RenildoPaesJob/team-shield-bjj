@@ -14,9 +14,9 @@ return [
     |
     */
 
-    'title' => 'Shield Team',
-    'title_prefix' => '',
-    'title_postfix' => '',
+    'title' => 'Time Escudo',
+    'title_prefix' => 'Time Escudo - ',
+    'title_postfix' => 'Time Escudo - ',
 
     /*
     |--------------------------------------------------------------------------
@@ -188,7 +188,7 @@ return [
     */
 
     'use_route_url' => false,
-    'dashboard_url' => 'home',
+    'dashboard_url' => '/',
     'logout_url' => 'logout',
     'login_url' => 'login',
     'register_url' => 'register',

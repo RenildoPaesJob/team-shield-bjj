@@ -3,7 +3,7 @@ version: "3.7"
 services:
     # image project
     app:
-        container_name: especializati-laravel-9
+        container_name: shield-laravel-9
         build:
             context: .
             dockerfile: Dockerfile
