@@ -2,11 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\StoreAlunoRequest;
-use App\Http\Requests\UpdateAlunoRequest;
-use App\Models\Aluno;
+use App\Http\Requests\StoreProjetoRequest;
+use App\Http\Requests\UpdateProjetoRequest;
+use App\Models\Projeto;
 
-class AlunoController extends Controller
+class ProjetoController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,7 +15,7 @@ class AlunoController extends Controller
      */
     public function index()
     {
-        return view('layouts.list-aluno');
+        //
     }
 
     /**
@@ -25,27 +25,27 @@ class AlunoController extends Controller
      */
     public function create()
     {
-        return view('layouts.new-aluno');
+        //
     }
 
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \App\Http\Requests\StoreAlunoRequest  $request
+     * @param  \App\Http\Requests\StoreProjetoRequest  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(StoreAlunoRequest $request)
+    public function store(StoreProjetoRequest $request)
     {
-        dd($request);
+        //
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Aluno  $aluno
+     * @param  \App\Models\Projeto  $projeto
      * @return \Illuminate\Http\Response
      */
-    public function show(Aluno $aluno)
+    public function show(Projeto $projeto)
     {
         //
     }
@@ -53,10 +53,10 @@ class AlunoController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Aluno  $aluno
+     * @param  \App\Models\Projeto  $projeto
      * @return \Illuminate\Http\Response
      */
-    public function edit(Aluno $aluno)
+    public function edit(Projeto $projeto)
     {
         //
     }
@@ -64,11 +64,11 @@ class AlunoController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \App\Http\Requests\UpdateAlunoRequest  $request
-     * @param  \App\Models\Aluno  $aluno
+     * @param  \App\Http\Requests\UpdateProjetoRequest  $request
+     * @param  \App\Models\Projeto  $projeto
      * @return \Illuminate\Http\Response
      */
-    public function update(UpdateAlunoRequest $request, Aluno $aluno)
+    public function update(UpdateProjetoRequest $request, Projeto $projeto)
     {
         //
     }
@@ -76,10 +76,10 @@ class AlunoController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Aluno  $aluno
+     * @param  \App\Models\Projeto  $projeto
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Aluno $aluno)
+    public function destroy(Projeto $projeto)
     {
         //
     }

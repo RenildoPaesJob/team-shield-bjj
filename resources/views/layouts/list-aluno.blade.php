@@ -15,7 +15,7 @@
         </div>
         <div class="row mb-2">
             <div class="col-md-12">
-                <a type="button" href="{{ route('new-aluno') }}" class="btn btn-outline-primary">
+                <a type="button" href="{{ route('create.aluno') }}" class="btn btn-outline-primary">
                     <i class="fa-solid fa-plus"></i> Novo
                 </a>
             </div>
