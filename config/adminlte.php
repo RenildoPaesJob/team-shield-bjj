@@ -16,7 +16,7 @@ return [
 
     'title' => 'Time Escudo',
     'title_prefix' => 'Time Escudo - ',
-    'title_postfix' => 'Time Escudo - ',
+    'title_postfix' => '',
 
     /*
     |--------------------------------------------------------------------------

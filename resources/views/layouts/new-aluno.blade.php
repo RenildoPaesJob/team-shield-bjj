@@ -10,14 +10,14 @@
             </div>
             <div class="col-md-8 mt-1 font-italic text-right">
                 <a href="{{ route('home') }}"><span class="">Home </span></a>/
-                <a href="{{ route('aluno') }}"><span class="">Alunos </span></a>/
+                <a href="{{ route('aluno.index') }}"><span class="">Alunos </span></a>/
                 <span class="">Novo Aluno</span>
             </div>
         </div>
 
         <div class="row mt-1 justify-content-md-center">
             <div class="col-md-10">
-                <form action="{{ route('create.aluno') }}" method="GET">
+                <form action="{{ route('aluno.create') }}" method="GET">
                     <div class="mb-1">
                         <label for="name" class="form-label">Nome</label>
                         <input type="text" class="form-control" id="name" name="name" placeholder="Ex. Maria da Silva">
@@ -43,7 +43,7 @@
 
                 <div class="mt-1">
                     <button class="btn btn-outline-success" type="submit">Salvar</button>
-                    <a href="{{ route('aluno') }}" class="btn btn-outline-danger">Voltar</a>
+                    <a href="{{ route('aluno.index') }}" class="btn btn-outline-danger">Voltar</a>
                 </div>
             </div>
         </div>

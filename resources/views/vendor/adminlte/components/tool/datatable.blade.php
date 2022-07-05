@@ -2,7 +2,7 @@
 
 <div class="table-responsive">
 
-    <table id="{{ $id }}" style="{{ 'border-radius: 10px 10px 0px 0px' }}" class="{{ 'table table-striped table-hover table-inverse table-responsive' }}">
+    <table id="{{ $id }}" style="{{ 'border-radius: 10px 10px 0px 0px' }}" class="{{ 'table table-striped table-inverse table-responsive' }}">
         {{-- Table head --}}
         <thead class="{{ 'table-dark' }}">
             <tr>

@@ -1,8 +1,9 @@
 @extends('adminlte::page')
 
-@section('title', 'Home')
+@section('title', 'Alunos')
 
 @section('content')
+    {{-- listagem de usuários --}}
     <div class="container">
         <div class="row align-items-center">
             <div class="col-md-4 mt-1">
@@ -15,7 +16,7 @@
         </div>
         <div class="row mb-2">
             <div class="col-md-12">
-                <a type="button" href="{{ route('create.aluno') }}" class="btn btn-outline-primary">
+                <a type="button" href="{{ route('aluno.create') }}" class="btn btn-outline-primary">
                     <i class="fa-solid fa-plus"></i> Novo
                 </a>
             </div>
@@ -34,23 +35,25 @@
                             'Ações',
                         ],
                     ])
-                    <tr>
-                        <td scope="row">Renildo</td>
-                        <td>renildo@gmail.com</td>
-                        <td>Academia</td>
-                        <td>Branca</td>
-                        <td>btn</td>
-                    </tr>
-                    <tr>
-                        <td scope="row">Renildo</td>
-                        <td>renildo@gmail.com</td>
-                        <td>Academia</td>
-                        <td>Branca</td>
-                        <td>btn</td>
-                    </tr>
+                    {{-- @foreach ($trs as $tr) --}}
+                        <tr>
+                            <td scope="row">Renildo</td>
+                            <td>renildo@gmail.com</td>
+                            <td>Academia</td>
+                            <td>Branca</td>
+                            <td>btn</td>
+                        </tr>
+                        <tr>
+                            <td scope="row">Renildo</td>
+                            <td>renildo@gmail.com</td>
+                            <td>Academia</td>
+                            <td>Branca</td>
+                            <td>btn</td>
+                        </tr> 
+                    {{-- @endforeach --}}
+                    
                 @endcomponent
             </div>
         </div>
-
     </div>
 @endsection
