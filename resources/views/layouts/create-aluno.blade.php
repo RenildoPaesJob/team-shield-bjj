@@ -16,35 +16,35 @@
         </div>
 
         <div class="row mt-1 justify-content-md-center">
-            <div class="col-md-10">
-                <form action="{{ route('aluno.create') }}" method="GET">
+            <div class="col-md-8">
+                <form action="{{ route('aluno.store') }}" method="post">
+                    @csrf
                     <div class="mb-1">
                         <label for="name" class="form-label">Nome</label>
-                        <input type="text" class="form-control" id="name" name="name" placeholder="Ex. Maria da Silva">
+                        <input type="text" class="form-control" id="name" name="name" placeholder="Ex. Maria da Silva" value="renildo">
+                        {{-- {{ old('name') }} --}}
                     </div>
                     <div class="mb-1">
                         <label for="email" class="form-label">Email</label>
-                        <input type="email" class="form-control" id="email" name="email" placeholder="exemple@gmail.com">
+                        <input type="email" class="form-control" id="email" name="email" placeholder="exemple@gmail.com" value="renildo@gmail.com">
                     </div>
                     <div class="mb-1">
                         <label for="celular" class="form-label">Celular</label> <i class="fa-brands fa-whatsapp"></i>
-                        <input type="text" class="form-control" id="name" name="celular" placeholder="Celular">
+                        <input type="text" class="form-control" id="name" name="celular" placeholder="Celular" value="61 99999-8888">
                     </div>
                     <div class="mb-1">
                         <label for="faixa" class="form-label">Faixa</label>
-                        <input type="text" class="form-control" id="faixa" name="faixa" placeholder="Preta">
+                        <input type="text" class="form-control" id="faixa" name="faixa" placeholder="Preta" value="Preta">
                     </div>
                     <div class="mb-1">
                         <label for="ativo" class="form-label">Ativo</label> <br>
                         <input type="radio" class="radio-control" id="ativo" name="ativo" value="1" checked> Sim
                         <input type="radio" class="radio-control" id="ativo" name="ativo" value="0"> Não
                     </div>
-                </form>
 
-                <div class="mt-1">
                     <button class="btn btn-outline-success" type="submit">Salvar</button>
                     <a href="{{ route('aluno.index') }}" class="btn btn-outline-danger">Voltar</a>
-                </div>
+                </form>
             </div>
         </div>
 

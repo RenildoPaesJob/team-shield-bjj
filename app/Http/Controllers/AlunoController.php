@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\StoreAlunoRequest;
 use App\Http\Requests\UpdateAlunoRequest;
 use App\Models\Aluno;
+use Illuminate\Http\Request;
 
 class AlunoController extends Controller
 {
@@ -25,7 +26,7 @@ class AlunoController extends Controller
      */
     public function create()
     {
-        return view('layouts.new-aluno');
+        return view('layouts.create-aluno');
     }
 
     /**
@@ -34,7 +35,7 @@ class AlunoController extends Controller
      * @param  \App\Http\Requests\StoreAlunoRequest  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(StoreAlunoRequest $request)
+    public function store(Request $request)
     {
         dd($request);
     }
