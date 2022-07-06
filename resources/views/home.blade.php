@@ -12,4 +12,7 @@
             </div>
         </div>
     </div>
+    @section('footer')
+        @include('footer')
+    @endsection
 @endsection

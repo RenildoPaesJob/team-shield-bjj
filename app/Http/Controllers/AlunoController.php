@@ -16,7 +16,10 @@ class AlunoController extends Controller
      */
     public function index()
     {
-        return view('layouts.list-aluno');
+        $alunos = Aluno::get();
+        // dd($alunos);
+
+        return view('layouts.list-aluno', compact('alunos'));
     }
 
     /**

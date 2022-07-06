@@ -10,6 +10,8 @@ use Illuminate\Support\Facades\Route;
 Auth::routes();
 Route::middleware('auth')->get('/', [HomeController::class, 'index'])->name('home');
 Route::middleware('auth')->get('/aluno', [AlunoController::class, 'index'])->name('aluno.index');
+Route::middleware('auth')->get('/aluno/{id}', [AlunoController::class, 'show'])->name('aluno.show');
+
 Route::middleware('auth')->get('/aluno/create', [AlunoController::class, 'create'])->name('aluno.create');
 Route::middleware('auth')->post('/aluno/create-aluno', [AlunoController::class, 'store'])->name('aluno.store');
 Route::middleware('auth')->get('/aluno/{id}', [AlunoController::class, 'show'])->name('aluno.show');

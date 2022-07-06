@@ -2,12 +2,12 @@
 
 <div class="table-responsive">
 
-    <table id="{{ $id }}" style="{{ 'border-radius: 10px 10px 0px 0px' }}" class="{{ 'table table-striped table-inverse table-responsive' }}">
+    <table id="{{ $id }}" class="{{ 'table table-striped rounded-3' }}" style="border-radius: 10px 10px">
         {{-- Table head --}}
         <thead class="{{ 'table-dark' }}">
             <tr>
                 @foreach($heads as $th)
-                    <th  class="col-md-3">
+                    <th>
                         {{ is_array($th) ? ($th['label'] ?? '') : $th }}
                     </th>
                 @endforeach
@@ -15,7 +15,7 @@
         </thead>
 
         {{-- Table body --}}
-        <tbody>{{ $slot }}</tbody>
+        <tbody class="col">{{ $slot }}</tbody>
 
         {{-- Table footer --}}
         @isset($withFooter)

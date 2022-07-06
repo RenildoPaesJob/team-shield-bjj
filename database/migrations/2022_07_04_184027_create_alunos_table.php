@@ -18,6 +18,7 @@ return new class extends Migration
             $table->string('name');
             $table->string('email')->unique();
             $table->string('telphone');
+            $table->string('projeto');
             $table->string('belt');
             $table->binary('ativo');
             $table->timestamps();
