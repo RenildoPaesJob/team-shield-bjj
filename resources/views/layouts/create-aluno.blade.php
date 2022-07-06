@@ -47,6 +47,15 @@
                 </form>
             </div>
         </div>
-
     </div>
+    @section('footer')
+        <div class="row">
+            <div class="col-md-6">
+                <span>Shield Team BJJ </span><i class="fa fa-copyright"></i> 2022
+            </div>
+            <div class="col-md-6 justify-content-end">
+                <span>versão<strong> 1.0</strong></span>
+            </div>
+        </div>
+    @endsection
 @endsection
