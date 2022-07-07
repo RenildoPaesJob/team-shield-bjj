@@ -42,6 +42,7 @@
                                     'Email',
                                     'Projeto',
                                     'Faixa',
+                                    'status',
                                     'Ações',
                                 ],
                             ]
@@ -52,6 +53,7 @@
                                 <td>{{ $aluno->email }}</td>
                                 <td>{{ $aluno->telphone }}</td>
                                 <td>{{ $aluno->belt }}</td>
+                                <td>{{ $aluno->status }}</td>
                                 <td class="col-md-4">
                                     <a href="#" title="{{ 'Detalhes' }}" class="btn btn-outline-warning" type="submit"><i class="fa fa-search"></i></a>
                                     <a href="#" title="{{ 'Editar' }}" class="btn btn-outline-info" type="submit"><i class="fa fa-pencil"></i></a>
