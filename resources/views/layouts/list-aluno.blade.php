@@ -12,11 +12,9 @@
 
                         <div class="col-md">
                             <div class="h1">Alunos
-                                <span>
                                     <a type="button" href="{{ route('aluno.create') }}" class="btn btn-outline-primary">
                                         <i class="fa-solid fa-plus"></i> Novo
                                     </a>
-                                </span>
                             </div>
                         </div>
 

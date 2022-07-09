@@ -13,11 +13,9 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('pagamentos', function (Blueprint $table) {
+        Schema::create('historic_payments', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
-            $table->text('description')->nullable();
-            $table->binary('ativo');
+            $table->string('aluno_id');
             $table->timestamps();
         });
     }
@@ -29,6 +27,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('pagamentos');
+        Schema::dropIfExists('historic_payments');
     }
 };
