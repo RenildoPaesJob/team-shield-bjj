@@ -271,7 +271,7 @@ return [
         ],
         [
             'text'        => 'Projeto',
-            'url'         => 'admin/pages',
+            'url'         => '/pages',
             'icon'        => 'fa fa-hand-holding-hand',
             // 'label'       => 0,
             // 'label_color' => 'success',

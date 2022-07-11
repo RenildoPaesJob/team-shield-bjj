@@ -8,10 +8,10 @@
         <div class="card col-md-12 mt-1 mb-1">
             <div class="card-body">
                 <div class="row align-middle">
-                    <div class="col-md-4">
-                        <div class="h1"><i class="fa fa-user-plus"></i> Novo Status Pagamento</div>
+                    <div class="col-md-6">
+                        <div class="h1">Novo Status Pagamento</div>
                     </div>
-                    <div class="col-md-8 font-italic text-right mt-3">
+                    <div class="col-md-6 font-italic text-right mt-3">
                         <a href="{{ route('home') }}"><span class="">Home </span></a>/
                         <a href="{{ route('payment.index') }}"><span class="">Status Pagam. </span></a>/
                         <span class="">Novo</span>
@@ -26,7 +26,7 @@
             <div class="card-body">
                 <div class="row justify-content-center">
                     <div class="col-md-8">
-                        <form action="{{ route('payment.store') }}" method="post">
+                        <form action="{{ route('payment.store') }}" method="POST">
                             @csrf
                             <div class="mb-1">
                                 <label for="name" class="form-label">Nome</label>
@@ -70,7 +70,7 @@
         )
 
     @endcomponent --}}
-            
+
     @section('footer')
         @include('footer')
     @endsection

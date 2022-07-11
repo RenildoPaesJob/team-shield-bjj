@@ -9,16 +9,15 @@
             <div class="card col-12 mt-1 mb-1">
                 <div class="card-body">
                     <div class="row align-middle">
-                        <div class="col-md">
+                        <div class="col-md-6">
                             <div class="h1">Status de Pagamento
-                                    {{-- <a type="button" href="{{ route('payment.create') }}" class="btn btn-outline-primary"> --}}
-                                    <a type="button" href="#" class="btn btn-outline-primary">
+                                    <a type="button" href="{{ route('payment.create') }}" class="btn btn-outline-primary">
                                         <i class="fa fa-user-plus"></i> Novo
                                     </a>
                             </div>
                         </div>
 
-                        <div class="col-md-8 font-italic text-right mt-3">
+                        <div class="col-md-6 font-italic text-right mt-3">
                             <span>
                                 <a href="{{ route('home') }}"><span class="">Home </span></a>/
                                 <span class="">Status de Pagamento</span>
@@ -56,16 +55,17 @@
                                 </td>
 
                                 <td class="text-center">
-                                    {{-- <a href="{{ route('payment.show', ['id' => $payment->id]) }}" 
-                                        title="{{ 'Detalhes' }}" class="btn btn-outline-warning" 
+                                    <a href="{{ route('payment.show', ['id' => $payment->id]) }}"
+                                        title="{{ 'Detalhes' }}" class="btn btn-outline-warning"
                                         type="submit"><i class="fa fa-search"></i>
                                     </a>
 
-                                    <a href="{{ route('payment.update', $payment->id) }}" 
+                                    <a href="#"
+                                    {{-- {{ route('payment.update', $payment->id) }} --}}
                                         title="{{ 'Editar' }}"
                                         class="btn btn-outline-primary"
                                         type="submit"><i class="fa fa-pencil"></i>
-                                    </a> --}}
+                                    </a>
                                 </td>
                             </tr>
                         @endforeach

@@ -13,12 +13,12 @@
         </div>
     </div>
 
-    <div class="row justify-content-center">
+    <div class="row">
         <div class="col-md-12">
             <div class="card">
                 <div class="card-body">
-                    <div class="col ">
-                        <canvas id="myChart"></canvas>
+                    <div class="col-md-9">
+                        <canvas id="myChart" style="width:100%;max-width:700px"></canvas>
 
                         {{-- {{  $alunos }} --}}
                         {{-- style="width:100%;max-width:600px" --}}
@@ -37,7 +37,7 @@
     <script>
 
         var xValues = ["Preta", "Marron", "Roxa", "Azul", "Branca", "Pedentes", "Pagos", "Academia", "Projeto Socials", "Em Atraso"];
-        var yValues = [60, 49, 44, 24, 15, 50, 21, 60, 50, 10];
+        var yValues = [60, 49, 44, 24, 15, 50, 21, 60, 50, 10, 5];
         var barColors = [
             "#000000",
             "#C63203",
@@ -52,18 +52,19 @@
         ];
 
         new Chart("myChart", {
-            type: "pie",
+            type: "bar",
             data: {
                 labels: xValues,
                 datasets: [{
-                    backgroundColor: barColors,
-                    data: yValues
+                backgroundColor: barColors,
+                data: yValues
                 }]
             },
             options: {
+                legend: {display: false},
                 title: {
-                    display: true,
-                    text: "Equipe Escudo BJJ"
+                display: true,
+                text: "World Wine Production 2018"
                 }
             }
         });
