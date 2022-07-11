@@ -19,7 +19,7 @@ return new class extends Migration
             $table->string('email')->unique();
             $table->string('telphone');
             $table->string('belt');
-            $table->binary('project');
+            $table->binary('type');
             $table->binary('active');
             $table->timestamps();
         });

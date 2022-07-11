@@ -16,12 +16,12 @@ class AlunoSeeder extends Seeder
     public function run()
     {
         Aluno::create([
-            'name'      => 'Renildo Paes 4dfasfsadfsfsaasfs',
-            'email'     => 'renildosfsafsafsfsasa2@gmail.com',
+            'name'      => 'Renildo Paes 3',
+            'email'     => 'renildo6@gmail.com',
             'telphone'  => '(61) 9 9999-8888)',
-            'project'   => 'Academia',
+            'type'      => 'Academia',
             'belt'      => 'Preta',
-            'active'     => 1
+            'active'    => 1
         ]);
     }
 }

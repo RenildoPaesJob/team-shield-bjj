@@ -3,9 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\StoreAlunoRequest;
-use App\Http\Requests\UpdateAlunoRequest;
 use App\Models\Aluno;
 use Illuminate\Http\Request;
+
 
 class AlunoController extends Controller
 {
@@ -19,7 +19,7 @@ class AlunoController extends Controller
         $alunos = Aluno::get();
         // dd($alunos);
 
-        return view('layouts.list-aluno', compact('alunos'));
+        return view('layouts.aluno.list-aluno', compact('alunos'));
     }
 
     /**
@@ -29,18 +29,20 @@ class AlunoController extends Controller
      */
     public function create()
     {
-        return view('layouts.create-aluno');
+        return view('layouts.aluno.create-aluno');
     }
 
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \App\Http\Requests\StoreAlunoRequest  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(StoreAlunoRequest $request)
     {
-        dd($request);
+        Aluno::create($request->all());
+
+        return redirect()->route('aluno.index');
+        // dd($request->all());
     }
 
     /**
@@ -49,9 +51,17 @@ class AlunoController extends Controller
      * @param  \App\Models\Aluno  $aluno
      * @return \Illuminate\Http\Response
      */
-    public function show(Aluno $id)
+    public function show($id)
     {
-        dd('aluno.show',$id);
+        // $aluno = Aluno::where('id', $id)->first();
+        $aluno = Aluno::find($id);
+
+        //if is null
+        if(is_null($aluno)){
+            return redirect()->route('aluno.index');
+        }
+
+        return view('layouts.aluno.show-aluno', compact('aluno'));
     }
 
     /**
@@ -60,9 +70,15 @@ class AlunoController extends Controller
      * @param  \App\Models\Aluno  $aluno
      * @return \Illuminate\Http\Response
      */
-    public function edit(Aluno $aluno)
+    public function edit($id)
     {
-        //
+        $aluno = Aluno::find($id);
+
+        if (!$aluno) {
+            return redirect()->route('aluno.index');
+        }
+
+        return view('layouts.aluno.aluno-edit', compact('aluno'));
     }
 
     /**
@@ -72,19 +88,31 @@ class AlunoController extends Controller
      * @param  \App\Models\Aluno  $aluno
      * @return \Illuminate\Http\Response
      */
-    public function update(UpdateAlunoRequest $request, Aluno $aluno)
+    public function update(StoreAlunoRequest $request, $id)
     {
-        //
+        Aluno::find($id);
+
+        Aluno::updateAluno($request, $id);
+
+        return redirect()->route('aluno.index');
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Aluno  $aluno
+     * @param  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Aluno $aluno)
+    public function destroy($id)
     {
-        //
+        $aluno = Aluno::find($id);
+
+        if (!$aluno) {
+            return redirect()->route('aluno.index');
+        }
+
+        $aluno->delete();
+
+        return redirect()->route('aluno.index');
     }
 }

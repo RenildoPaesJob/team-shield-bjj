@@ -5,7 +5,7 @@
     <table id="{{ $id }}" class="{{ 'table table-striped rounded-3' }}" style="border-radius: 10px 10px">
         {{-- Table head --}}
         <thead class="{{ 'table-dark' }}">
-            <tr>
+            <tr class="text-center">
                 @foreach($heads as $th)
                     <th>
                         {{ is_array($th) ? ($th['label'] ?? '') : $th }}

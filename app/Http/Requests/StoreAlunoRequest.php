@@ -23,25 +23,37 @@ class StoreAlunoRequest extends FormRequest
      */
     public function rules()
     {
-        return [
-            'name' => [
-                'required',
-                'min:4',
-                'max:255'
-            ],
+        $id  = $this->id ?? '';
+        // dd($id);
+        $rules = [
+            'name' => 'required|string|min:3|max:255',
             'email' => [
-                'unique:alunos',
-                'required'
-            ],
-            'celular' => [
                 'required',
-                'numeric',
-                'min:11',
-                'max:11'
+                'email',
+                "unique:alunos,email,{$id},id",
             ],
-            'faixa' => [
+            'telphone' => [
+                'required',
+                'min:10',
+                'max:19',
+            ],
+            'belt' => [
                 'required'
             ]
         ];
+
+        if ($this->method('PUT')) {
+            $rules['telphone'] = [
+                'nullable',
+                'min:10',
+                'max:19',
+            ];
+            
+            $rules['belt'] = [
+                'required'
+            ];
+        }
+
+        return $rules;
     }
 }
