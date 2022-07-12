@@ -31,6 +31,13 @@
         <div class="row p-1">
             <div class="card col-md-12">
                 <div class="card-body">
+                    {{-- <div class="col-md-3">
+                        <form action="#" method="get">
+                            <input  class="form-control" type="search" name="search" placeholder="Pesquisar">
+                            <button class="btn btn-outline-primary" type="submit"><i class="fa fa-search"></i></button>
+                        </form>
+                    </div> --}}
+                    
                     @component('vendor.adminlte.components.tool.datatable',
                             [
                                 'id'    => 'table-list-aluno',
