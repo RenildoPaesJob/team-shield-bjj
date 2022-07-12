@@ -12,7 +12,7 @@
                         <div class="col-md-6">
                             <div class="h1">Status de Pagamento
                                     <a type="button" href="{{ route('payment.create') }}" class="btn btn-outline-primary">
-                                        <i class="fa fa-user-plus"></i> Novo
+                                        <i class="fa fa-plus"></i> Novo
                                     </a>
                             </div>
                         </div>
@@ -60,8 +60,7 @@
                                         type="submit"><i class="fa fa-search"></i>
                                     </a>
 
-                                    <a href="#"
-                                    {{-- {{ route('payment.update', $payment->id) }} --}}
+                                    <a href="{{ route('payment.edit', $payment->id) }}"
                                         title="{{ 'Editar' }}"
                                         class="btn btn-outline-primary"
                                         type="submit"><i class="fa fa-pencil"></i>

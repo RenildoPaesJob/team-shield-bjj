@@ -21,11 +21,11 @@
         </div>
     </div>
 
-    <div class="row p-1">
-        <div class="card col-md-12">
+    <div class="row p-1 justify-content-center">
+        <div class="card col-md-6">
             <div class="card-body">
                 <div class="row justify-content-center">
-                    <div class="col-md-8">
+                    <div class="col">
                         <form action="{{ route('aluno.store') }}" method="post">
                             @csrf
                             <div class="mb-1">
@@ -41,8 +41,22 @@
                                 <input type="text" class="form-control" id="name" name="telphone" placeholder="Celular" value="{{ old('telphone') }}">
                             </div>
                             <div class="mb-1">
-                                <label for="belt" class="form-label">Faixa</label>
-                                <input type="text" class="form-control" id="faixa" name="belt" placeholder="Preta" value="{{ old('belt') }}">
+                                <div class="col-md-5 p-0">
+                                    <label for="belt" class="form-label">Faixa</label>
+                                    <select class="form-control" name="belt" id="belt">
+                                    <option value="Vermelha">Vermelha</option>
+                                    <option value="Coral">Coral</option>
+                                    <option value="Preta">Preta</option>
+                                    <option value="Marron">Marron</option>
+                                    <option value="Roxa">Roxa</option>
+                                    <option value="Azul">Azul</option>
+                                    <option value="Verde">Verde</option>
+                                    <option value="Laranja">Laranja</option>
+                                    <option value="Amarela">Amarela</option>
+                                    <option value="Cinza">Cinza</option>
+                                    <option value="Branca">Branca</option>
+                                    </select>
+                                </div>
                             </div>
                             <div class="row mt-2 mb-3">
                                 <div class="col">
@@ -66,8 +80,8 @@
                             @include('layouts.errors')
 
                             <div class="row justify-content-center">
-                                <button class="btn btn-outline-success col-md-3 m-2" type="submit">Salvar</button>
-                                <a href="{{ route('aluno.index') }}" class="btn btn-outline-danger col-md-3 m-2">Voltar</a>
+                                <button class="btn btn-outline-success col m-2" type="submit">Salvar</button>
+                                <a href="{{ route('aluno.index') }}" class="btn btn-outline-danger col m-2">Voltar</a>
                             </div>
                         </form>
                     </div>

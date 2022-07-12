@@ -3,6 +3,7 @@
 @section('title', 'Detalhes do Aluno')
 
 @section('content')
+    {{-- @dd($aluno->created_at) --}}
     {{-- listagem de usuários --}}
     <div class="row p-1">
         <div class="card col-12 mt-1 mb-1">
@@ -24,11 +25,11 @@
         </div>
     </div>
 
-    <div class="row p-1">
-        <div class="card col-md-12">
+    <div class="row p-1 justify-content-md-center">
+        <div class="card col-md-6">
             <div class="card-body">
                 <div class="row justify-content-md-center">
-                    <div class="col-md-8">
+                    <div class="col">
                         
                         <form action="{{ route('aluno.store') }}" method="post">
                             @csrf
@@ -79,6 +80,24 @@
                                 </div>
                             </div>
                         </form>
+                        <div class="row justify-content-end mt-2">
+                            <div class="col-md-6 text-right">
+                                <form action="{{ route('aluno.destroy', $aluno->id) }}" method="POST">
+                                    @csrf
+                                    @method('DELETE')
+                                    <button type="submit" class="btn btn-outline-danger col-md-6" title="{{ 'Excluir' }}">
+                                        <i class="fa fa-trash"></i>
+                                    </button>
+                                </form>
+                            </div>
+                        </div>
+
+                        <div class="row justify-content-end mt-2">
+                            <div class="col-md-6 text-right">
+                                <a href="{{ route('aluno.index') }}" class="btn btn-outline-danger col-md-6">Voltar</a>
+                            </div>
+                        </div>
+{{-- 
                         <div class="row">
                             <div class="col-md-6">
                                 <form action="{{ route('aluno.destroy', $aluno->id) }}" method="POST">
@@ -92,7 +111,7 @@
                         </div>
                         <div class="row justify-content-center">
                             <a href="{{ route('aluno.index') }}" class="btn btn-outline-danger col-md-3">Voltar</a>
-                        </div>
+                        </div> --}}
                     </div>
                 </div>
             </div>

@@ -21,11 +21,11 @@
         </div>
     </div>
 
-    <div class="row p-1">
-        <div class="card col-md-12">
+    <div class="row p-1 justify-content-center">
+        <div class="card col-md-6">
             <div class="card-body">
                 <div class="row justify-content-center">
-                    <div class="col-md-8">
+                    <div class="col">
                         <form action="{{ route('payment.store') }}" method="POST">
                             @csrf
                             <div class="mb-1">

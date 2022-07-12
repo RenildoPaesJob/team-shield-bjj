@@ -56,8 +56,7 @@
 
                 <div class="row justify-content-end mt-2">
                     <div class="col-md-6 text-right">
-                        <form action="#" method="POST">
-                            {{-- {{ route('aluno.destroy', $payment->id) }} --}}
+                        <form action="{{ route('payment.destroy', $payment->id) }}" method="POST">
                             @csrf
                             @method('DELETE')
                             <button type="submit" class="btn btn-outline-danger col-md-6" title="{{ 'Excluir' }}">

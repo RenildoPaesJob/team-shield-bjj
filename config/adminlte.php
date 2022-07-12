@@ -256,6 +256,13 @@ return [
             // 'label_color' => 'success',
         ],
         [
+            'text'        => 'Histórico',
+            'url'         => '/historic',
+            'icon'        => 'fa fa-history',
+            // 'label'       => 0,
+            // 'label_color' => 'success',
+        ],
+        [
             'text'        => 'Alunos',
             'url'         => '/aluno',
             'icon'        => 'far fa-fw fa-user',
@@ -263,16 +270,9 @@ return [
             // 'label_color' => 'success',
         ],
         [
-            'text'        => 'Pagamento',
+            'text'        => 'Status de Pagamento',
             'url'         => '/pagamento',
             'icon'        => 'fa fa-money-bills',
-            // 'label'       => 0,
-            // 'label_color' => 'success',
-        ],
-        [
-            'text'        => 'Projeto',
-            'url'         => '/pages',
-            'icon'        => 'fa fa-hand-holding-hand',
             // 'label'       => 0,
             // 'label_color' => 'success',
         ],
@@ -329,12 +329,12 @@ return [
          *  ],
         */
 
-        ['header' => 'Opções'],
-        [
-            'text'       => 'Sair',
-            'icon_color' => 'red',
-            'url'        => '/login',
-        ],
+        // ['header' => 'Opções'],
+        // [
+        //     'text'       => 'Sair',
+        //     'icon_color' => 'red',
+        //     'url'        => '/login',
+        // ],
         /** items configuration
          *
          * [
