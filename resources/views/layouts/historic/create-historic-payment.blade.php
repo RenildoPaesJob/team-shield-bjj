@@ -33,14 +33,19 @@
                             @csrf
                             {{-- nome do aluno --}}
                             <div class="mb-1">
-                                <div class="col-md-5 p-0">
+                                <div class="col p-0">
                                     <label for="aluno_id" class="form-label">Nome do Aluno</label>
-                                    @foreach($alunos as $aluno)
-                                        <select class="form-control" name="aluno_id">
+                                    <select class="form-control" name="aluno_id">
+                                        <option class="form-control" name="aluno_id" value="0">Selecione um Aluno!</option>
+                                        @foreach($alunos as $aluno)
                                             <option value="{{ $aluno->id }}">{{ $aluno->name }}</option>
-                                        </select>
-                                    @endforeach
+                                        @endforeach
+                                    </select>
                                 </div>
+                            </div>
+                            <div class="mb-1">
+                                <label for="name" class="form-label">Data de Pagamento</label>
+                                <input class="form-control" type="datetime-local" name="payment_date" value="">
                             </div>
 
                             {{-- errors messages --}}
@@ -48,7 +53,7 @@
 
                             <div class="row justify-content-center">
                                 <button class="btn btn-outline-success col m-2" type="submit">Salvar</button>
-                                <a href="{{ route('aluno.index') }}" class="btn btn-outline-danger col m-2">Voltar</a>
+                                <a href="{{ route('historic.index') }}" class="btn btn-outline-danger col m-2">Voltar</a>
                             </div>
                         </form>
                     </div>
