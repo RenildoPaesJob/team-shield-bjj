@@ -16,7 +16,7 @@ return new class extends Migration
         Schema::create('historic_payments', function (Blueprint $table) {
             $table->id();
             $table->integer('aluno_id');
-            $table->integer('payment_statuses_id');
+            $table->text('payment_statuses_name')->default('Pendente');
             $table->dateTime('payment_date');
             $table->timestamps();
         });

@@ -28,5 +28,7 @@ Route::middleware('auth')->group(function () {
     Route::get('/pagamento/edit/{id}',  [PaymentStatusController::class, 'edit'])->name('payment.edit');
     Route::put('/pagamento/edit/{id}',  [PaymentStatusController::class, 'update'])->name('payment.update');
     Route::delete('/pagamento/{id}',    [PaymentStatusController::class, 'destroy'])->name('payment.destroy');
+
+
 });
 

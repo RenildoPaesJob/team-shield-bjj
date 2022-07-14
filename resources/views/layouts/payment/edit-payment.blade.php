@@ -44,7 +44,7 @@
                             <div class="row mb-3">
                                 <div class="col-md-6">
                                     <label for="active" class="form-label">Ativo</label> <br>
-                                    
+
                                     <div class="container">
                                         @if ($payment->active == 1)
                                             <input type="radio" class="radio-control" name="active" value="1" checked> Sim <br>
@@ -59,7 +59,7 @@
 
                             <div class="row justify-content-center">
                                 <button class="btn btn-outline-success col-md-3 m-2" type="submit">Salvar</button>
-                                <a href="{{ route('aluno.index') }}" class="btn btn-outline-danger col-md-3 m-2">Voltar</a>
+                                <a href="{{ route('payment.index') }}" class="btn btn-outline-danger col-md-3 m-2">Voltar</a>
                             </div>
                         </form>
                     </div>
