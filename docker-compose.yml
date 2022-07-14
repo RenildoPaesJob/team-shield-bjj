@@ -68,6 +68,6 @@ services:
         networks:
             - laravel-9
 
-    networks:
-        laravel-9:
-            driver: bridge
+networks:
+    laravel-9:
+        driver: bridge

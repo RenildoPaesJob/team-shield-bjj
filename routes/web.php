@@ -2,10 +2,13 @@
 use App\Http\Controllers\{
     HomeController,
     AlunoController,
+    HistoricPaymentController,
     PaymentStatusController
 };
-use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\{
+    Auth,
+    Route
+};
 
 Auth::routes();
 Route::middleware('auth')->group(function () {
@@ -29,6 +32,9 @@ Route::middleware('auth')->group(function () {
     Route::put('/pagamento/edit/{id}',  [PaymentStatusController::class, 'update'])->name('payment.update');
     Route::delete('/pagamento/{id}',    [PaymentStatusController::class, 'destroy'])->name('payment.destroy');
 
+    //routes historic
+    Route::get('/historic',         [HistoricPaymentController::class, 'index'])->name('historic.index');
+    Route::get('/historic/create',  [HistoricPaymentController::class, 'create'])->name('historic.create');
 
 });
 
