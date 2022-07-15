@@ -16,8 +16,10 @@ return new class extends Migration
         Schema::create('historic_payments', function (Blueprint $table) {
             $table->id();
             $table->integer('aluno_id');
-            $table->integer('payment_statuses_id');
             $table->dateTime('payment_date');
+            $table->dateTime('finish_payment_date');
+            $table->integer('payment_statuses_id');
+            $table->decimal('value', 10,2);
             $table->timestamps();
         });
     }

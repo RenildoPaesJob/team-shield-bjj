@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Aluno;
 use App\Models\HistoricPayment;
+use App\Models\PaymentStatus;
 use Illuminate\Http\Request;
 
 class HistoricPaymentController extends Controller
@@ -15,6 +16,7 @@ class HistoricPaymentController extends Controller
 
     public function create(){
         $alunos = Aluno::all();
-        return view('layouts.historic.create-historic-payment', compact('alunos'));
+        $statuses = PaymentStatus::all();
+        return view('layouts.historic.create-historic-payment', compact('alunos', 'statuses'));
     }
 }

@@ -44,8 +44,29 @@
                                 </div>
                             </div>
                             <div class="mb-1">
-                                <label for="name" class="form-label">Data de Pagamento</label>
-                                <input class="form-control" type="datetime-local" name="payment_date" value="">
+                                <label for="payment_date" class="form-label">Data de Pagamento</label>
+                                <input class="form-control" type="datetime-local" name="payment_date" value="{{ old('payment_date') }}">
+                            </div>
+                            <div class="mb-1">
+                                <label for="finish_payment_date" class="form-label">Data do Vencimento</label>
+                                <input class="form-control" type="datetime-local" name="finish_payment_date" value="{{ old('finish_payment_date') }}">
+                            </div>
+                            <div class="mb-1">
+                                <div class="col p-0">
+                                    <label for="payment_statuses_id" class="form-label">Status</label>
+                                    <select class="form-control" name="payment_statuses_id">
+                                        <option class="form-control" name="payment_statuses_id" value="0">Selecione um Status!</option>
+                                        @foreach($statuses as $status)
+                                            @if ($status->active == 1)
+                                                <option value="{{ $status->id }}">{{ $status->name }}</option>
+                                            @endif
+                                        @endforeach
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="mb-1">
+                                <label for="value" class="form-label">Valor</label>
+                                <input class="form-control" type="text" name="value" value="{{ old('value') }}">
                             </div>
 
                             {{-- errors messages --}}
