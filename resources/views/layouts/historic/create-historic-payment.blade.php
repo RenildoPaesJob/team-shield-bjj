@@ -45,7 +45,7 @@
                             </div>
                             <div class="mb-1">
                                 <label for="payment_date" class="form-label">Data de Pagamento</label>
-                                <input class="form-control" type="datetime-local" name="payment_date" value="{{ old('payment_date') }}">
+                                <input class="form-control" type="datetime-local" name="payment_date" value="{{ Carbon::parse('d/m/Y')->now() }}">
                             </div>
                             <div class="mb-1">
                                 <label for="finish_payment_date" class="form-label">Data do Vencimento</label>
