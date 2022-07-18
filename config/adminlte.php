@@ -386,6 +386,36 @@ return [
     */
 
     'plugins' => [
+        'Ajax' => [
+            'active' => true,
+            'files' => [
+                [
+                    'type' => 'js',
+                    'asset' => true,
+                    'location' => '//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js',
+                ],
+            ],
+        ],
+        'JQuery' => [
+            'active' => true,
+            'files' => [
+                [
+                    'type' => 'js',
+                    'asset' => true,
+                    'location' => '//code.jquery.com/jquery-3.6.0.js',
+                ],
+            ],
+        ],
+        'MaskMoney' => [
+            'active' => true,
+            'files' => [
+                [
+                    'type' => 'js',
+                    'asset' => true,
+                    'location' => '//cdnjs.cloudflare.com/ajax/libs/jquery-maskmoney/3.0.2/jquery.maskMoney.min.js',
+                ],
+            ],
+        ],
         'Datatables' => [
             'active' => true,
             'files' => [
@@ -468,7 +498,7 @@ return [
                     'type' => 'js',
                     'asset' => true,
                     'location' => '//cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js',
-                ],
+                ]
             ],
         ],
     ],

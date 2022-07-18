@@ -16,11 +16,18 @@ class HistoricPaymentController extends Controller
     }
 
     public function create(){
-        $date = Carbon::now();
-        // $date = Carbon::format($datenow)->addDay(30);
-        dd($date);
-        $alunos = Aluno::all();
-        $statuses = PaymentStatus::all();
-        return view('layouts.historic.create-historic-payment', compact('alunos', 'statuses'));
+        $dateNow        = Carbon::now('America/Sao_Paulo');
+        $dateVenciment  = Carbon::now('America/Sao_Paulo')->addDay(30);
+        $alunos         = Aluno::all();
+        $statuses       = PaymentStatus::all();
+
+        return view('layouts.historic.create-historic-payment', compact('alunos', 'statuses', 'dateNow', 'dateVenciment'));
+    }
+
+    public function store(Request $request){
+        dd($request->all());
+        HistoricPayment::create($request->all());
+
+        return redirect()->route('historic.index');
     }
 }

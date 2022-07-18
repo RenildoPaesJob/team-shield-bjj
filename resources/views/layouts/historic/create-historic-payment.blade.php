@@ -45,11 +45,11 @@
                             </div>
                             <div class="mb-1">
                                 <label for="payment_date" class="form-label">Data de Pagamento</label>
-                                <input class="form-control" type="datetime-local" name="payment_date" value="{{ Carbon::parse('d/m/Y')->now() }}">
+                                <input class="form-control" type="datetime-local" name="payment_date" value="{{ $dateNow }}">
                             </div>
                             <div class="mb-1">
                                 <label for="finish_payment_date" class="form-label">Data do Vencimento</label>
-                                <input class="form-control" type="datetime-local" name="finish_payment_date" value="{{ old('finish_payment_date') }}">
+                                <input class="form-control" type="datetime-local" name="finish_payment_date" value="{{ $dateVenciment }}">
                             </div>
                             <div class="mb-1">
                                 <div class="col p-0">
@@ -66,7 +66,7 @@
                             </div>
                             <div class="mb-1">
                                 <label for="value" class="form-label">Valor</label>
-                                <input class="form-control" type="text" name="value" value="{{ old('value') }}">
+                                <input class="form-control" type="text" name="value" id="valor" value="{{ old('value') }}">
                             </div>
 
                             {{-- errors messages --}}
@@ -82,6 +82,7 @@
             </div>
         </div>
     </div>
+
     @section('footer')
         @include('footer')
     @endsection
