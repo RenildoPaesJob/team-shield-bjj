@@ -34,22 +34,24 @@
                             [
                                 'id'    => 'table-list-historic',
                                 'heads' => [
-                                    'Nome Aluno',
+                                    'Nome do Aluno',
                                     'Status',
                                     'Data de Pagamento',
+                                    'Data de Vencimento',
                                     'Ações',
                                 ],
                             ]
                         )
                         @foreach ($historics as $historic)
                             <tr class="text-center">
-                                <td>{{ $historic->aluno_id }}</td>
-                                <td>{{ $historic->payment_statuses_id }}</td>
+                                <td>{{ $historic->name_aluno }}</td>
+                                <td>{{ $historic->name_payment_statuses }}</td>
                                 <td>{{ $historic->payment_date }}</td>
+                                <td>{{ $historic->finish_payment_date }}</td>
 
                                 <td class="text-center">
                                     {{-- <a href="{{ route('historic.show', ['id' => $historic->id]) }}"  --}}
-                                        <a href="#"
+                                        <a href="{{ route('historic.show', $historic->id) }}"
                                         title="{{ 'Detalhes' }}" class="btn btn-outline-warning"
                                         type="submit"><i class="fa fa-search"></i>
                                     </a>

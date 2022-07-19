@@ -493,6 +493,11 @@ return [
                     'type' => 'js',
                     'asset' => true,
                     'location' => '//cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js',
+                ],
+                [
+                    'type' => 'js',
+                    'asset' => true,
+                    'location' => '//cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/js/all.min.js',
                 ]
             ],
         ],

@@ -33,11 +33,11 @@
                             {{-- nome do aluno --}}
                             <div class="mb-1">
                                 <div class="col p-0">
-                                    <label for="aluno_id" class="form-label">Nome do Aluno</label>
-                                    <select class="form-control" name="aluno_id">
-                                        <option class="form-control" name="aluno_id" value="0">Selecione um Aluno!</option>
+                                    <label for="name_aluno" class="form-label">Nome do Aluno</label>
+                                    <select class="form-control" name="name_aluno">
+                                        <option class="form-control" name="name_aluno" value="0">Selecione um Aluno!</option>
                                         @foreach($alunos as $aluno)
-                                            <option value="{{ $aluno->id }}">{{ $aluno->name }}</option>
+                                            <option value="{{ old($aluno->name) ?? $aluno->name }}">{{ $aluno->name }}</option>
                                         @endforeach
                                     </select>
                                 </div>
@@ -53,11 +53,11 @@
                             <div class="mb-1">
                                 <div class="col p-0">
                                     <label for="payment_statuses_id" class="form-label">Status</label>
-                                    <select class="form-control" name="payment_statuses_id">
-                                        <option class="form-control" name="payment_statuses_id" value="0">Selecione um Status!</option>
+                                    <select class="form-control" name="name_payment_statuses">
+                                        <option class="form-control" name="name_payment_statuses" value="0">Selecione um Status!</option>
                                         @foreach($statuses as $status)
                                             @if ($status->active == 1)
-                                                <option value="{{ $status->id }}">{{ $status->name }}</option>
+                                                <option value="{{ $status->name }}">{{ $status->name }}</option>
                                             @endif
                                         @endforeach
                                     </select>
@@ -85,7 +85,7 @@
     @section('js-historic')
         <script type="text/javascript">
             $(document).ready(function(){
-                $("#valor").maskMoney({prefix:'R$ ', allowNegative: true, thousands:'.', decimal:',', affixesStay: false})
+                $("#valor").maskMoney({prefix:'R$ ', allowNegative: true, thousands:',', decimal:'.', affixesStay: false})
             })
         </script>
     @endsection

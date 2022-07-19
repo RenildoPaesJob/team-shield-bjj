@@ -24,11 +24,11 @@ class HistoricPaymentRequest extends FormRequest
     public function rules()
     {
         return [
-            // 'aluno' => 'required',
-            'payment_date' => 'required',
-            'finish_payment_date' => 'required',
-            'payment_statuses_id' => 'required',
-            'valor' => 'required',
+            'name_aluno'            => 'required',
+            'payment_date'          => 'required',
+            'finish_payment_date'   => 'required',
+            // 'name_payment_statuses' => 'required',
+            'valor'                 => 'required',
         ];
     }
 }

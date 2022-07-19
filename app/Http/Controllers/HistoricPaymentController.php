@@ -26,8 +26,12 @@ class HistoricPaymentController extends Controller
     }
 
     public function store(HistoricPaymentRequest $request){
-        // dd($request->all());
         HistoricPayment::create($request->all());
         return redirect()->route('historic.index');
+    }
+
+    public function show($id){
+        $historic = HistoricPayment::find($id);
+        return view('historic.show', compact('historic'));
     }
 }

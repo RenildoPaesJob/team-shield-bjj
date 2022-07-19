@@ -33,9 +33,10 @@ Route::middleware('auth')->group(function () {
     Route::delete('/pagamento/{id}',    [PaymentStatusController::class, 'destroy'])->name('payment.destroy');
 
     //routes historic
-    Route::get('/historic',         [HistoricPaymentController::class, 'index'])->name('historic.index');
-    Route::get('/historic/create',  [HistoricPaymentController::class, 'create'])->name('historic.create');
-    Route::post('/historic/create', [HistoricPaymentController::class, 'store'])->name('historic.store');
+    Route::get('/historic',             [HistoricPaymentController::class, 'index'])->name('historic.index');
+    Route::get('/historic/create',      [HistoricPaymentController::class, 'create'])->name('historic.create');
+    Route::post('/historic/create',     [HistoricPaymentController::class, 'store'])->name('historic.store');
+    Route::get('/historic/show/{id}',   [HistoricPaymentController::class, 'show'])->name('historic.show');
 
 });
 

@@ -10,10 +10,10 @@ class HistoricPayment extends Model
     use HasFactory;
 
     protected $fillable = [
-        'aluno_id',
+        'name_aluno',
         'payment_date',
         'finish_payment_date',
-        'payment_statuses_id',
-        'value'
+        'name_payment_statuses',
+        'valor'
     ];
 }

@@ -15,10 +15,10 @@ return new class extends Migration
     {
         Schema::create('historic_payments', function (Blueprint $table) {
             $table->id();
-            $table->integer('aluno_id');
+            $table->string('name_aluno');
             $table->dateTime('payment_date');
             $table->dateTime('finish_payment_date');
-            $table->integer('payment_statuses_id');
+            $table->string('name_payment_statuses');
             $table->float('valor', 10,2);
             $table->timestamps();
         });
