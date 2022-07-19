@@ -48,7 +48,7 @@ class StoreAlunoRequest extends FormRequest
                 'min:10',
                 'max:19',
             ];
-            
+
             $rules['belt'] = [
                 'required'
             ];

@@ -71,7 +71,7 @@
         <meta name="msapplication-TileImage" content="{{ asset('favicon/ms-icon-144x144.png') }}">
     @endif
 
-    @include('adminlte::plugins', ['type' => 'js', 'css'])
+    @include('adminlte::plugins', ['type' => 'js'])
 
 </head>
 
@@ -105,6 +105,8 @@
 
     {{-- Custom Scripts --}}
     @yield('adminlte_js')
+    @yield('js-historic')
+
 </body>
 
 </html>

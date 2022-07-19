@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\HistoricPaymentRequest;
 use App\Models\Aluno;
 use App\Models\HistoricPayment;
 use App\Models\PaymentStatus;
@@ -24,10 +25,9 @@ class HistoricPaymentController extends Controller
         return view('layouts.historic.create-historic-payment', compact('alunos', 'statuses', 'dateNow', 'dateVenciment'));
     }
 
-    public function store(Request $request){
-        dd($request->all());
+    public function store(HistoricPaymentRequest $request){
+        // dd($request->all());
         HistoricPayment::create($request->all());
-
         return redirect()->route('historic.index');
     }
 }

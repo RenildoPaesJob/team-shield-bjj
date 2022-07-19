@@ -28,8 +28,7 @@
             <div class="card-body">
                 <div class="row justify-content-center">
                     <div class="col">
-                        {{-- <form action="{{ route('aluno.store') }}" method="post"> --}}
-                        <form action="#" method="post">
+                        <form action="{{ route('historic.store') }}" method="post">
                             @csrf
                             {{-- nome do aluno --}}
                             <div class="mb-1">
@@ -65,8 +64,8 @@
                                 </div>
                             </div>
                             <div class="mb-1">
-                                <label for="value" class="form-label">Valor</label>
-                                <input class="form-control" type="text" name="value" id="valor" value="{{ old('value') }}">
+                                <label for="valor" class="form-label">Valor</label>
+                                <input class="form-control" type="text" name="valor" id="valor" value="{{ old('valor') }}">
                             </div>
 
                             {{-- errors messages --}}
@@ -82,6 +81,14 @@
             </div>
         </div>
     </div>
+
+    @section('js-historic')
+        <script type="text/javascript">
+            $(document).ready(function(){
+                $("#valor").maskMoney({prefix:'R$ ', allowNegative: true, thousands:'.', decimal:',', affixesStay: false})
+            })
+        </script>
+    @endsection
 
     @section('footer')
         @include('footer')

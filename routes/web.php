@@ -35,6 +35,7 @@ Route::middleware('auth')->group(function () {
     //routes historic
     Route::get('/historic',         [HistoricPaymentController::class, 'index'])->name('historic.index');
     Route::get('/historic/create',  [HistoricPaymentController::class, 'create'])->name('historic.create');
+    Route::post('/historic/create', [HistoricPaymentController::class, 'store'])->name('historic.store');
 
 });
 

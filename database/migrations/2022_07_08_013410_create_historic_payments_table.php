@@ -19,7 +19,7 @@ return new class extends Migration
             $table->dateTime('payment_date');
             $table->dateTime('finish_payment_date');
             $table->integer('payment_statuses_id');
-            $table->decimal('value', 10,2);
+            $table->float('valor', 10,2);
             $table->timestamps();
         });
     }
