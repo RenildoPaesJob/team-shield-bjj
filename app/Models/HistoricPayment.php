@@ -16,4 +16,8 @@ class HistoricPayment extends Model
         'name_payment_statuses',
         'valor'
     ];
+
+    protected $cast = [
+        'payment_date' => 'date:d-m-Y'
+    ];
 }

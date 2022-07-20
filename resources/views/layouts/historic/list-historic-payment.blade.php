@@ -46,22 +46,23 @@
                             <tr class="text-center">
                                 <td>{{ $historic->name_aluno }}</td>
                                 <td>{{ $historic->name_payment_statuses }}</td>
+                                {{-- <td>{{ date_format($historic->payment_date, "D M Y") }}</td> --}}
                                 <td>{{ $historic->payment_date }}</td>
                                 <td>{{ $historic->finish_payment_date }}</td>
 
                                 <td class="text-center">
-                                    {{-- <a href="{{ route('historic.show', ['id' => $historic->id]) }}"  --}}
-                                        <a href="{{ route('historic.show', $historic->id) }}"
+                                    {{-- <a href="{{ route('historic.show', ['id' => $historic->id]) }}" --}}
+                                    <a href="{{ route('historic.show', $historic->id) }}"
                                         title="{{ 'Detalhes' }}" class="btn btn-outline-warning"
                                         type="submit"><i class="fa fa-search"></i>
                                     </a>
 
                                     {{-- <a href="{{ route('historic.update', $historic->id) }}"  --}}
-                                        <a href="#"
+                                        {{-- <a href="#"
                                         title="{{ 'Editar' }}"
                                         class="btn btn-outline-primary"
                                         type="submit"><i class="fa fa-pencil"></i>
-                                    </a>
+                                    </a> --}}
                                 </td>
                             </tr>
                         @endforeach

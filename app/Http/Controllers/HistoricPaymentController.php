@@ -12,7 +12,9 @@ use Carbon\Carbon;
 class HistoricPaymentController extends Controller
 {
     public function index(){
-        $historics = HistoricPayment::get();
+        $historics = HistoricPayment::all();
+        // $date_payment = $historics['payment_date'];
+        // dd($date_payment);
         return view('layouts.historic.list-historic-payment', compact('historics'));
     }
 
@@ -30,8 +32,9 @@ class HistoricPaymentController extends Controller
         return redirect()->route('historic.index');
     }
 
-    public function show($id){
-        $historic = HistoricPayment::find($id);
-        return view('historic.show', compact('historic'));
+    public function show($historic_id){
+        $historic = HistoricPayment::find($historic_id);
+
+        return view('layouts.historic.show-historic', compact('historic'));
     }
 }
