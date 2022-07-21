@@ -15,6 +15,7 @@ Route::middleware('auth')->group(function () {
 
     // routes alunos
     Route::get('/',                     [HomeController::class, 'index'])->name('home');
+    // Route::resource('/aluno', AlunoController::class);
     Route::get('/aluno',                [AlunoController::class, 'index'])->name('aluno.index');
     Route::get('/aluno/create',         [AlunoController::class, 'create'])->name('aluno.create');
     Route::post('/aluno/create',        [AlunoController::class, 'store'])->name('aluno.store');
@@ -31,6 +32,8 @@ Route::middleware('auth')->group(function () {
     Route::get('/pagamento/edit/{id}',  [PaymentStatusController::class, 'edit'])->name('payment.edit');
     Route::put('/pagamento/edit/{id}',  [PaymentStatusController::class, 'update'])->name('payment.update');
     Route::delete('/pagamento/{id}',    [PaymentStatusController::class, 'destroy'])->name('payment.destroy');
+
+    // Route::resource('/pagamento', PaymentStatusController::class);
 
     //routes historic
     Route::get('/historic',             [HistoricPaymentController::class, 'index'])->name('historic.index');

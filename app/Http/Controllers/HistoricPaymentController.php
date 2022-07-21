@@ -2,19 +2,27 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\HistoricPaymentRequest;
-use App\Models\Aluno;
-use App\Models\HistoricPayment;
-use App\Models\PaymentStatus;
-use Illuminate\Http\Request;
-use Carbon\Carbon;
+use App\Http\Requests\{
+    HistoricPaymentRequest,
+    Request
+};
+use App\Models\{
+    Aluno,
+    HistoricPayment,
+    PaymentStatus
+};
+use Carbon\{
+    Carbon
+};
 
 class HistoricPaymentController extends Controller
 {
     public function index(){
         $historics = HistoricPayment::all();
+        foreach($historics as $h){
+            dd(date_format($h->payment_date, 'd/m/Y H:i:s'));
+        }
         // $date_payment = $historics['payment_date'];
-        // dd($date_payment);
         return view('layouts.historic.list-historic-payment', compact('historics'));
     }
 

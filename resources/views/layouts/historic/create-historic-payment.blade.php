@@ -44,11 +44,11 @@
                             </div>
                             <div class="mb-1">
                                 <label for="payment_date" class="form-label">Data de Pagamento</label>
-                                <input class="form-control" type="datetime-local" name="payment_date" value="{{ $dateNow }}">
+                                <input class="form-control" type="datetime-local" name="payment_date" value="{{ $dateNow }}" disabled>
                             </div>
                             <div class="mb-1">
                                 <label for="finish_payment_date" class="form-label">Data do Vencimento</label>
-                                <input class="form-control" type="datetime-local" name="finish_payment_date" value="{{ $dateVenciment }}">
+                                <input class="form-control" type="datetime-local" name="finish_payment_date" value="{{ $dateVenciment }}" disabled>
                             </div>
                             <div class="mb-1">
                                 <div class="col p-0">

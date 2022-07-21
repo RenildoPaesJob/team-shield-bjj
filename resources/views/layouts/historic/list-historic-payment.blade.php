@@ -51,18 +51,10 @@
                                 <td>{{ $historic->finish_payment_date }}</td>
 
                                 <td class="text-center">
-                                    {{-- <a href="{{ route('historic.show', ['id' => $historic->id]) }}" --}}
                                     <a href="{{ route('historic.show', $historic->id) }}"
                                         title="{{ 'Detalhes' }}" class="btn btn-outline-warning"
                                         type="submit"><i class="fa fa-search"></i>
                                     </a>
-
-                                    {{-- <a href="{{ route('historic.update', $historic->id) }}"  --}}
-                                        {{-- <a href="#"
-                                        title="{{ 'Editar' }}"
-                                        class="btn btn-outline-primary"
-                                        type="submit"><i class="fa fa-pencil"></i>
-                                    </a> --}}
                                 </td>
                             </tr>
                         @endforeach
