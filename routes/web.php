@@ -24,15 +24,6 @@ Route::middleware('auth')->group(function () {
     Route::get('/aluno/{id}',           [AlunoController::class, 'show'])->name('aluno.show');
     Route::delete('/aluno/destroy/{id}',[AlunoController::class, 'destroy'])->name('aluno.destroy');
 
-    // routes pagamento
-    Route::get('/pagamento',            [PaymentStatusController::class, 'index'])->name('payment.index');
-    Route::get('/pagamento/create',     [PaymentStatusController::class, 'create'])->name('payment.create');
-    Route::post('/pagamento/create',    [PaymentStatusController::class, 'store'])->name('payment.store');
-    Route::get('/pagamento/{id}',       [PaymentStatusController::class, 'show'])->name('payment.show');
-    Route::get('/pagamento/edit/{id}',  [PaymentStatusController::class, 'edit'])->name('payment.edit');
-    Route::put('/pagamento/edit/{id}',  [PaymentStatusController::class, 'update'])->name('payment.update');
-    Route::delete('/pagamento/{id}',    [PaymentStatusController::class, 'destroy'])->name('payment.destroy');
-
     // Route::resource('/pagamento', PaymentStatusController::class);
 
     //routes historic

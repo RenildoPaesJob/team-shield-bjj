@@ -16,9 +16,9 @@ class AlunoSeeder extends Seeder
     public function run()
     {
         Aluno::create([
-            'name'      => 'Renildo Paes 3',
-            'email'     => 'renildo6@gmail.com',
-            'telphone'  => '(61) 9 9999-8888)',
+            'name'      => 'Lolis Paes da Silva',
+            'email'     => 'lolispaessilva@gmail.com',
+            'telphone'  => '(61) 9 9999-8888',
             'type'      => 'Academia',
             'belt'      => 'Preta',
             'active'    => 1

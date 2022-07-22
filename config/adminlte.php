@@ -269,13 +269,13 @@ return [
             // 'label'       => 0,
             // 'label_color' => 'success',
         ],
-        [
-            'text'        => 'Status de Pagamento',
-            'url'         => '/pagamento',
-            'icon'        => 'fa fa-money-bills',
-            // 'label'       => 0,
-            // 'label_color' => 'success',
-        ],
+        // [
+        //     'text'        => 'Status de Pagamento',
+        //     'url'         => '/pagamento',
+        //     'icon'        => 'fa fa-money-bills',
+        //     // 'label'       => 0,
+        //     // 'label_color' => 'success',
+        // ],
 
         /*  items configuration
          * ['header' => 'account_settings'],

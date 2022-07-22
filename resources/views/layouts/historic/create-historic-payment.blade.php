@@ -44,27 +44,26 @@
                             </div>
                             <div class="mb-1">
                                 <label for="payment_date" class="form-label">Data de Pagamento</label>
-                                <input class="form-control" type="datetime-local" name="payment_date" value="{{ $dateNow }}" disabled>
+                                <input class="form-control" type="datetime-local" name="payment_date" value="{{ $dateNow }}">
                             </div>
                             <div class="mb-1">
                                 <label for="finish_payment_date" class="form-label">Data do Vencimento</label>
-                                <input class="form-control" type="datetime-local" name="finish_payment_date" value="{{ $dateVenciment }}" disabled>
+                                <input class="form-control" type="datetime-local" name="finish_payment_date" value="{{ $dateVenciment }}">
                             </div>
                             <div class="mb-1">
                                 <div class="col p-0">
                                     <label for="payment_statuses_id" class="form-label">Status</label>
-                                    <select class="form-control" name="name_payment_statuses">
-                                        <option class="form-control" name="name_payment_statuses" value="0">Selecione um Status!</option>
-                                        @foreach($statuses as $status)
-                                            @if ($status->active == 1)
-                                                <option value="{{ $status->name }}">{{ $status->name }}</option>
-                                            @endif
-                                        @endforeach
+                                    <select class="form-control" name="name_payment_statuses" required>
+                                        {{-- <option class="form-control" name="name_payment_statuses" value="Sem Status">Selecione um Status!</option> --}}
+
+                                        <option value="Pago">Pago</option>
+                                        <option value="Em Atraso">Em Atraso</option>
+                                        {{-- <option value="A vencer">A vencer</option> --}}
                                     </select>
                                 </div>
                             </div>
                             <div class="mb-1">
-                                <label for="valor" class="form-label">Valor</label>
+                                <label for="valor" class="form-label">Valor R$</label>
                                 <input class="form-control" type="text" name="valor" id="valor" value="{{ old('valor') }}">
                             </div>
 
@@ -85,7 +84,7 @@
     @section('js-historic')
         <script type="text/javascript">
             $(document).ready(function(){
-                $("#valor").maskMoney({prefix:'R$ ', allowNegative: true, thousands:',', decimal:'.', affixesStay: false})
+                $("#valor").maskMoney({allowNegative: true, thousands:',', decimal:'.', affixesStay: false})
             })
         </script>
     @endsection

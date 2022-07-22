@@ -27,7 +27,7 @@ class HistoricPaymentRequest extends FormRequest
             'name_aluno'            => 'required',
             'payment_date'          => 'required',
             'finish_payment_date'   => 'required',
-            // 'name_payment_statuses' => 'required',
+            'name_payment_statuses' => 'required',
             'valor'                 => 'required',
         ];
     }

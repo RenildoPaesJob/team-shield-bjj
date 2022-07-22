@@ -2,26 +2,28 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\{
-    HistoricPaymentRequest,
-    Request
-};
+use App\Http\Requests\HistoricPaymentRequest;
 use App\Models\{
     Aluno,
     HistoricPayment,
     PaymentStatus
 };
-use Carbon\{
-    Carbon
-};
+use Carbon\Carbon;
+use Illuminate\Http\Request;
 
 class HistoricPaymentController extends Controller
 {
     public function index(){
         $historics = HistoricPayment::all();
-        foreach($historics as $h){
-            dd(date_format($h->payment_date, 'd/m/Y H:i:s'));
-        }
+        // $historics->only(['payment_date']);
+        // foreach($historics as $h){
+        //     $dateFormat = $h->only([
+        //         'payment_date'
+        //     ]);
+
+        //     // dd(date_format($dateFormat, 'd/m/Y H:i:s'));
+        //     dd($h->isoFormat('dddd D'));
+        // }
         // $date_payment = $historics['payment_date'];
         return view('layouts.historic.list-historic-payment', compact('historics'));
     }
@@ -30,12 +32,12 @@ class HistoricPaymentController extends Controller
         $dateNow        = Carbon::now('America/Sao_Paulo');
         $dateVenciment  = Carbon::now('America/Sao_Paulo')->addDay(30);
         $alunos         = Aluno::all();
-        $statuses       = PaymentStatus::all();
 
-        return view('layouts.historic.create-historic-payment', compact('alunos', 'statuses', 'dateNow', 'dateVenciment'));
+        return view('layouts.historic.create-historic-payment', compact('alunos', 'dateNow', 'dateVenciment'));
     }
 
     public function store(HistoricPaymentRequest $request){
+        // dd($request->all());
         HistoricPayment::create($request->all());
         return redirect()->route('historic.index');
     }
