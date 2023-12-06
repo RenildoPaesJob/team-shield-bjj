@@ -5,10 +5,10 @@ import SecondaryButton from "@/Components/SecondaryButton";
 export default function NewStundent(){
 	return (
 		<div className="dark:text-white">
-			<h1 className="text-center justify-center py-4 m-4 text-2xl">🚀 Novo Aluno 🚀</h1>
+			<h1 className="text-center justify-center mb-4 text-2xl">🚀 Novo Aluno 🚀</h1>
 
 			<form action={route('stundent.store')}>
-				<div className="flex flex-col px-32">
+				<div className="flex flex-col px-16">
 					<label htmlFor="name" className="text-xl">Nome</label>
 					<input className="text-black text-lg font-medium rounded-md dark:bg-gray-200 mb-3" type="text" name="name" id="name" />
 

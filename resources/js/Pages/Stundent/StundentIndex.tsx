@@ -22,7 +22,7 @@ export default function StundentIndex({ auth }: PageProps) {
 			user={auth.user}
 			header={
 				<div className='flex flex-row'>
-					<h2 className="font-semibold text-xl text-gray-800 dark:text-gray-200 leading-tight p-2 justify-center">
+					<h2 className="font-semibold text-xl text-gray-800 dark:text-gray-200 leading-tight p-3 mr-3 justify-center">
 						Alunos
 					</h2>
 					<PrimaryButton onClick={confirmUserDeletion}>Novo</PrimaryButton>
@@ -42,6 +42,9 @@ export default function StundentIndex({ auth }: PageProps) {
 			</div>
 
 			<Modal show={confirmingUserDeletion} onClose={closeModal}>
+				<div className='text-end justify-end'>
+					<button className='mr-8 py-4 text-white rounded-md' type='button' onClick={closeModal}>X</button>
+				</div>
 				<NewStundent />
 			</Modal>
 
