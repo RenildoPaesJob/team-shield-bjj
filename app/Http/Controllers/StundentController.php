@@ -14,7 +14,8 @@ class StundentController extends Controller
      */
     public function index()
     {
-		return Inertia::render('Stundent/StundentIndex');
+        $stundents = Stundent::all();
+		return Inertia::render('Stundent/StundentIndex', compact('stundents'));
     }
 
     /**

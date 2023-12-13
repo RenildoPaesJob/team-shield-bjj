@@ -7,6 +7,7 @@ import PrimaryButton from '@/Components/PrimaryButton';
 import NewStundent from '@/Pages/Stundent/NewStundent';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import Table from '@/Components/Table';
 
 interface User {
 	id: number;
@@ -17,9 +18,10 @@ interface User {
 interface StundentProps {
 	auth: { user: User; }
 	stundent_name?: string
+	stundents?: any
 }
 
-export default function StundentIndex({ auth, stundent_name }: StundentProps) {
+export default function StundentIndex({ auth, stundent_name, stundents }: StundentProps) {
 	const [confirmingUserDeletion, setConfirmingUserDeletion] = useState(false);
 
 	// if (stundent_name) {
@@ -59,6 +61,18 @@ export default function StundentIndex({ auth, stundent_name }: StundentProps) {
 					</div>
 				</div>
 			</div>
+
+			{stundents &&
+				<div className="max-w-7xl mx-auto sm:px-6 lg:px-8">
+					<div className="bg-white dark:bg-gray-800 overflow-hidden shadow-sm rounded-lg">
+						<div className="p-6 text-gray-900 dark:text-gray-100 flex flex-col">
+							<Table
+								array={stundents}
+							/>
+						</div>
+					</div>
+				</div>
+			}
 
 			<Modal show={confirmingUserDeletion} onClose={closeModal}>
 				<div className='text-end justify-end'>
