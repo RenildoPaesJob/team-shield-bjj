@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\StundentRequest;
+use App\Models\Stundent;
 use Illuminate\Http\Request;
 use Inertia\Inertia;
 
@@ -18,17 +20,27 @@ class StundentController extends Controller
     /**
      * Show the form for creating a new resource.
      */
-    public function create()
-    {
-        //
-    }
+    // public function create()
+    // {
+    //     //
+    // }
 
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(StundentRequest $request)
     {
-        //
+        $stundent = Stundent::create([
+            'name'       => $request->name,
+			'lastname'   => $request->lastname,
+			'date_birth' => $request->date_birth,
+			'belt'       => $request->belt,
+			'graduation' => $request->graduation
+        ]);
+
+		return Inertia::render('Stundent/StundentIndex', [
+			'stundent_name' => $stundent['name']
+		]);
     }
 
     /**

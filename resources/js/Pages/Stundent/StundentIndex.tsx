@@ -5,9 +5,26 @@ import Modal from '@/Components/Modal';
 import { useState } from 'react';
 import PrimaryButton from '@/Components/PrimaryButton';
 import NewStundent from '@/Pages/Stundent/NewStundent';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
-export default function StundentIndex({ auth }: PageProps) {
+interface User {
+	id: number;
+	name: string;
+	email: string;
+	email_verified_at: string;
+}
+interface StundentProps {
+	auth: { user: User; }
+	stundent_name?: string
+}
+
+export default function StundentIndex({ auth, stundent_name }: StundentProps) {
 	const [confirmingUserDeletion, setConfirmingUserDeletion] = useState(false);
+
+	// if (stundent_name) {
+	// 	Toast(stundent_name, 'top-center', 'success')
+	// }
 
 	const confirmUserDeletion = () => {
 		setConfirmingUserDeletion(true);
@@ -22,7 +39,7 @@ export default function StundentIndex({ auth }: PageProps) {
 			user={auth.user}
 			header={
 				<div className='flex flex-row'>
-					<h2 className="font-semibold text-xl text-gray-800 dark:text-gray-200 leading-tight p-3 mr-3 justify-center">
+					<h2 className="font-semibold text-xl text-gray-800 dark:text-gray-200 leading-tight mr-3 justify-center mt-1">
 						Alunos
 					</h2>
 					<PrimaryButton onClick={confirmUserDeletion}>Novo</PrimaryButton>
@@ -30,6 +47,8 @@ export default function StundentIndex({ auth }: PageProps) {
 			}
 		>
 			<Head title="Alunos" />
+
+			{/* {stundent_name ? ToastNotify(`${stundent_name}`) : ''} */}
 
 			<div className="py-12">
 				<div className="max-w-7xl mx-auto sm:px-6 lg:px-8">
