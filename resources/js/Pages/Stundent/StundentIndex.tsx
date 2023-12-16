@@ -14,7 +14,7 @@ interface User {
 interface StundentProps {
 	auth: { user: User; }
 	stundent_name?: string
-	stundents?: any
+	stundents: []
 }
 
 export default function StundentIndex({ auth, stundent_name, stundents }: StundentProps) {
@@ -43,8 +43,9 @@ export default function StundentIndex({ auth, stundent_name, stundents }: Stunde
 
 			{/* {stundent_name ? ToastNotify(`${stundent_name}`) : ''} */}
 
-			{stundents.length > 0 &&
-				<TableStundents array={stundents} />
+			{stundents.length > 0
+				?	<TableStundents array={stundents} />
+				: 'CADASTRE UM NOVO ALUNO'
 			}
 
 		</AuthenticatedLayout>
