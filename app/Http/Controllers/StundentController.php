@@ -21,10 +21,10 @@ class StundentController extends Controller
     /**
      * Show the form for creating a new resource.
      */
-    // public function create()
-    // {
-    //     //
-    // }
+    public function create()
+    {
+        return Inertia::render('Stundent/NewStundent');
+    }
 
     /**
      * Store a newly created resource in storage.
@@ -32,15 +32,19 @@ class StundentController extends Controller
     public function store(StundentRequest $request)
     {
         $stundent = Stundent::create([
-            'name'       => $request->name,
+			'name'       => $request->name,
 			'lastname'   => $request->lastname,
+			'email'      => $request->email,
+			'smartphone' => $request->smartphone,
 			'date_birth' => $request->date_birth,
 			'belt'       => $request->belt,
 			'graduation' => $request->graduation
         ]);
 
+		$stundents = Stundent::all();
+
 		return Inertia::render('Stundent/StundentIndex', [
-			'stundent_name' => $stundent['name']
+			'stundent_name' => $stundent['name'], 'stundents' => $stundents
 		]);
     }
 

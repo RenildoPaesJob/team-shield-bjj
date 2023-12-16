@@ -3,6 +3,7 @@
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\StundentController;
 use Illuminate\Foundation\Application;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
 
@@ -14,6 +15,15 @@ use Inertia\Inertia;
 //         'phpVersion' => PHP_VERSION,
 //     ]);
 // });
+
+Route::fallback(function (){
+	$user = Auth::user();
+
+	if(!$user){
+		return redirect()->route('login');
+	}
+	return redirect()->route('dashboard');
+});
 
 Route::get('/', function () {
     return Inertia::render('Dashboard');
@@ -27,6 +37,7 @@ Route::middleware('auth')->group(function () {
 
 Route::middleware('auth')->group(function () {
     Route::get('/student', [StundentController::class, 'index'])->name('stundent.index');
+    Route::get('/student/new-stundent', [StundentController::class, 'create'])->name('stundent.create');
     Route::get('/student/{id}', [StundentController::class, 'show'])->name('stundent.show');
     Route::post('/student', [StundentController::class, 'store'])->name('stundent.store');
     // Route::put('/student', [StundentController::class, 'edit'])->name('stundent.update');

@@ -11,6 +11,8 @@ class Stundent extends Model
 	protected $fillable = [
         'name',
 		'lastname',
+		'email',
+		'smartphone',
 		'date_birth',
 		'belt',
 		'graduation',
