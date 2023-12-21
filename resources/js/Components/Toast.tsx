@@ -1,14 +1,14 @@
 import { ToastContainer, TypeOptions, toast } from "react-toastify";
 
 interface ToastProps {
-	stundent      : string
+	student      : string
 	position_view : 'top-right'|'top-center'|'top-left'|'bottom-right'|'bottom-center'|'bottom-left'|'top-right'
 	type         ?: 'success'|'warning'|'error';
 }
 
-export function ToastNotify ({stundent, position_view, type}: ToastProps) {
+export function ToastNotify ({student, position_view, type}: ToastProps) {
 
-	toast(`${stundent} cadastrado com sucesso!`, {
+	toast(`${student} cadastrado com sucesso!`, {
 		position       : position_view,
 		autoClose      : 3000,
 		hideProgressBar: false,

@@ -7,7 +7,7 @@ import TextInput from '@/Components/TextInput';
 import { FormEventHandler } from 'react';
 import SecondaryButton from '@/Components/SecondaryButton';
 
-export default function NewStundent({ auth }: PageProps) {
+export default function EditStudent({ auth, dataStudent }: PageProps) {
 	const { data, setData, post, processing, reset, errors } = useForm({
 		name: '',
 		lastname: '',
@@ -18,10 +18,12 @@ export default function NewStundent({ auth }: PageProps) {
 		graduation: '',
 	})
 
+	// const {} = dataStudent
+
 	const submit: FormEventHandler = (e) => {
 		e.preventDefault()
 
-		post(route('stundent.store'))
+		post(route('student.edit'))
 
 		reset()
 	};
@@ -31,7 +33,7 @@ export default function NewStundent({ auth }: PageProps) {
 			user={auth.user}
 			header={<h2 className="font-semibold text-xl text-gray-800 dark:text-gray-200 leading-tight">🚀 Novo Aluno 🚀</h2>}
 		>
-			<Head title="🚀 Novo Aluno 🚀" />
+			<Head title="🚀 Editar Aluno 🚀" />
 
 			<div className="py-12">
 				<div className="max-w-7xl mx-auto sm:px-6 lg:px-8">

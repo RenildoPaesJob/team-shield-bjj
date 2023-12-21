@@ -1,7 +1,8 @@
 <?php
 
+use App\Http\Controllers\PaymentController;
 use App\Http\Controllers\ProfileController;
-use App\Http\Controllers\StundentController;
+use App\Http\Controllers\StudentController;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
@@ -36,12 +37,21 @@ Route::middleware('auth')->group(function () {
 });
 
 Route::middleware('auth')->group(function () {
-    Route::get('/student', [StundentController::class, 'index'])->name('stundent.index');
-    Route::get('/student/new-stundent', [StundentController::class, 'create'])->name('stundent.create');
-    Route::get('/student/{id}', [StundentController::class, 'show'])->name('stundent.show');
-    Route::post('/student', [StundentController::class, 'store'])->name('stundent.store');
-    // Route::put('/student', [StundentController::class, 'edit'])->name('stundent.update');
-    // Route::delete('/student', [StundentController::class, 'destroy'])->name('stundent.destroy');
+    Route::get('/student', [StudentController::class, 'index'])->name('student.index');
+    Route::get('/student/new-student', [StudentController::class, 'create'])->name('student.create');
+    Route::get('/student/{id}', [StudentController::class, 'show'])->name('student.show');
+    Route::post('/student', [StudentController::class, 'store'])->name('student.store');
+    Route::put('/student', [StudentController::class, 'edit'])->name('student.update');
+    Route::delete('/student', [StudentController::class, 'destroy'])->name('student.destroy');
+});
+
+Route::middleware('auth')->group(function () {
+    Route::get('/payment', [PaymentController::class, 'index'])->name('payment.index');
+    Route::get('/payment/new-student', [PaymentController::class, 'create'])->name('payment.create');
+    Route::get('/payment/{id}', [PaymentController::class, 'show'])->name('payment.show');
+    Route::post('/payment', [PaymentController::class, 'store'])->name('payment.store');
+    Route::put('/payment', [PaymentController::class, 'edit'])->name('payment.update');
+    Route::delete('/payment', [PaymentController::class, 'destroy'])->name('payment.destroy');
 });
 
 require __DIR__.'/auth.php';

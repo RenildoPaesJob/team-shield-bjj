@@ -2,20 +2,20 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\StundentRequest;
-use App\Models\Stundent;
+use App\Http\Requests\StudentRequest;
+use App\Models\Student;
 use Illuminate\Http\Request;
 use Inertia\Inertia;
 
-class StundentController extends Controller
+class StudentController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        $stundents = Stundent::all();
-		return Inertia::render('Stundent/StundentIndex', compact('stundents'));
+        $students = Student::all();
+		return Inertia::render('Student/StudentIndex', compact('students'));
     }
 
     /**
@@ -23,15 +23,15 @@ class StundentController extends Controller
      */
     public function create()
     {
-        return Inertia::render('Stundent/NewStundent');
+        return Inertia::render('Student/NewStudent');
     }
 
     /**
      * Store a newly created resource in storage.
      */
-    public function store(StundentRequest $request)
+    public function store(StudentRequest $request)
     {
-        $stundent = Stundent::create([
+        $student = Student::create([
 			'name'       => $request->name,
 			'lastname'   => $request->lastname,
 			'email'      => $request->email,
@@ -41,10 +41,10 @@ class StundentController extends Controller
 			'graduation' => $request->graduation
         ]);
 
-		$stundents = Stundent::all();
+		$students = Student::all();
 
-		return Inertia::render('Stundent/StundentIndex', [
-			'stundent_name' => $stundent['name'], 'stundents' => $stundents
+		return Inertia::render('Student/StudentIndex', [
+			'student_name' => $student['name'], 'students' => $students
 		]);
     }
 
@@ -53,7 +53,7 @@ class StundentController extends Controller
      */
     public function show(string $id)
     {
-        //
+        // dd($id);
     }
 
     /**

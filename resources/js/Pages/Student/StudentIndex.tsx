@@ -1,6 +1,6 @@
 import AuthenticatedLayout from '@/Layouts/AuthenticatedLayout';
 import { Head } from '@inertiajs/react';
-import TableStundents from '@/Components/TableStundents';
+import TableStudents from '@/Components/TableStudents';
 
 import 'react-toastify/dist/ReactToastify.css';
 import NavLinkSimple from '@/Components/NavLinkSimple';
@@ -11,28 +11,28 @@ interface User {
 	email: string;
 	email_verified_at: string;
 }
-interface StundentProps {
+interface StudentProps {
 	auth: { user: User; }
-	stundent_name?: string
-	stundents: []
+	student_name?: string
+	students: []
 }
 
-export default function StundentIndex({ auth, stundent_name, stundents }: StundentProps) {
+export default function StudentIndex({ auth, student_name, students }: StudentProps) {
 
-	// if (stundent_name) {
-	// 	Toast(stundent_name, 'top-center', 'success')
+	// if (student_name) {
+	// 	Toast(student_name, 'top-center', 'success')
 	// }
 
 	return (
 		<AuthenticatedLayout
 			user={auth.user}
 			header={
-				<div className='flex flex-row align-middle'>
+				<div className='flex flex-row'>
 					<h2 className="font-semibold text-xl text-gray-800 dark:text-gray-200 leading-tight mr-3 justify-center mt-2">
 						Alunos
 					</h2>
 					<NavLinkSimple
-						href={route('stundent.create')}
+						href={route('student.create')}
 						children='Novo'
 						className='p-2 bg-cyan-300 rounded-md hover:bg-cyan-300 hover:text-black transition ease-in-out delay-150 duration-300'
 					/>
@@ -41,12 +41,9 @@ export default function StundentIndex({ auth, stundent_name, stundents }: Stunde
 		>
 			<Head title="Alunos" />
 
-			{/* {stundent_name ? ToastNotify(`${stundent_name}`) : ''} */}
+			{/* {student_name ? ToastNotify(`${student_name}`) : ''} */}
 
-			{stundents.length > 0
-				?	<TableStundents array={stundents} />
-				: 'CADASTRE UM NOVO ALUNO'
-			}
+			<TableStudents array={students} />
 
 		</AuthenticatedLayout>
 	);

@@ -26,8 +26,12 @@ export default function Authenticated({ user, header, children }: PropsWithChild
 									Dashboard
 								</NavLink>
 
-								<NavLink href={route('stundent.index')} active={route().current('stundent.index')}>
+								<NavLink href={route('student.index')} active={route().current('student.index')}>
 									Alunos
+								</NavLink>
+
+								<NavLink href={route('payment.index')} active={route().current('payment.index')}>
+									Mensalidades
 								</NavLink>
 							</div>
 						</div>
@@ -101,7 +105,7 @@ export default function Authenticated({ user, header, children }: PropsWithChild
 							Dashboard
 						</ResponsiveNavLink>
 
-						<ResponsiveNavLink href={route('stundent.index')} active={route().current('stundent.index')}>
+						<ResponsiveNavLink href={route('student.index')} active={route().current('student.index')}>
 							Alunos
 						</ResponsiveNavLink>
 					</div>
