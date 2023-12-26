@@ -16,4 +16,9 @@ class Payment extends Model
 		'payment_method',
 		'notes'
 	];
+
+	public function getAllPayments()
+	{
+		// return has
+	}
 }

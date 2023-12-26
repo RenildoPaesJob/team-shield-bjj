@@ -45,7 +45,11 @@ class PaymentController extends Controller
 			'notes'           => $request->notes
         ]);
 
-		$payments = Payment::all();
+		// $payments = Payment::all();
+		$payments = DB::table('payments')
+            ->join('students', 'students.id', '=', 'payments.students_id')
+            ->select('students.name', 'payments.*')
+            ->get();
 
 		return Inertia::render('Payment/Payment', [
 			'status' => $payment, 'payments' => $payments

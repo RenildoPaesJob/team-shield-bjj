@@ -2,8 +2,12 @@ import AuthenticatedLayout from '@/Layouts/AuthenticatedLayout';
 import { Head } from '@inertiajs/react';
 import { PageProps } from '@/types';
 import NavLinkSimple from '@/Components/NavLinkSimple';
+import { Payments } from '@/types/payment';
 
-export default function Payment({ auth, payments }: PageProps) {
+export default function Payment({ auth, payments }: PageProps<{ payments: Payments[] | null }>) {
+
+	console.log('payment', payments);
+
 	return (
 		<AuthenticatedLayout
 			user={auth.user}
@@ -24,7 +28,7 @@ export default function Payment({ auth, payments }: PageProps) {
 				<div className="max-w-7xl mx-auto sm:px-6 lg:px-8">
 					<div className="bg-white dark:bg-gray-800 overflow-hidden shadow-sm sm:rounded-lg">
 						<div className="p-6 text-gray-900 dark:text-gray-100">
-							<div className="p-6 text-gray-900 dark:text-gray-100">Mesalidade</div>
+							<div className="p-6 text-gray-900 dark:text-gray-100">Mesalidades</div>
 						</div>
 					</div>
 				</div>
