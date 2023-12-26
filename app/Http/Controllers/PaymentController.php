@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\PaymentRequest;
 use App\Models\Payment;
+use App\Models\Student;
 use Illuminate\Http\Request;
 use Inertia\Inertia;
 
@@ -23,7 +24,11 @@ class PaymentController extends Controller
      */
     public function create()
     {
-        //
+		$students = Student::all();
+		// dd($students[0]['name']);
+		return Inertia::render('Payment/NewPayment', [
+			'students' => $students
+		]);
     }
 
     /**

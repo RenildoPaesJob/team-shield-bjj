@@ -1,4 +1,4 @@
-import { InertiaLinkProps } from "@inertiajs/react";
+import { InertiaLinkProps, Link } from "@inertiajs/react";
 import { AnchorHTMLAttributes } from "react";
 
 interface NavLinkProps {
@@ -10,13 +10,13 @@ interface NavLinkProps {
 
 export default function NavLinkSimple({ href, children, className, title }: InertiaLinkProps & NavLinkProps) {
 	return (
-		<a
+		<Link
 			type='button'
 			className={className}
 			href={href}
 			title={title}
 		>
 			{children}
-		</a>
+		</Link>
 	)
 }
