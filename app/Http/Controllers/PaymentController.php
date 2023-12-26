@@ -24,7 +24,7 @@ class PaymentController extends Controller
      */
     public function create()
     {
-		$students = Student::all();
+		$students = Student::select('id', 'name')->get();
 		// dd($students[0]['name']);
 		return Inertia::render('Payment/NewPayment', [
 			'students' => $students

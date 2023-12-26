@@ -5,13 +5,8 @@ import { FormEventHandler, JSXElementConstructor, ReactElement, ReactNode, React
 import InputLabel from '@/Components/InputLabel';
 import { Student } from '../../types/Student'
 
-interface NewPaymentProps {
-	students: [Student]
-	auth: PageProps
-}
-
-export default function NewPayment({ auth, students }: PageProps<{students: Array<[{}]>}>) {
-
+export default function NewPayment({ auth, students }: PageProps<{students: Student[]|null}>) {
+	
 	const { data, setData, post, processing, errors, reset } = useForm({
 		'student_id'     : '',
 		'payment_date'   : '',
@@ -28,10 +23,9 @@ export default function NewPayment({ auth, students }: PageProps<{students: Arra
 		post(route('password.store'));
 	};
 
+	const studentsOptions = students?.map(e => (
 
-	const studentsOptions = students.map(e => (
-
-		<option value={e.id}>{e.name}</option>
+		<option key={e.id} value={e.id}>{e.name}</option>
 	))
 
 	return (
