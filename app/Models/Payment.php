@@ -13,7 +13,6 @@ class Payment extends Model
 		'payment_date',
 		'amount_paid',
 		'reference_month',
-		'payment_status',
 		'payment_method',
 		'notes'
 	];

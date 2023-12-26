@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\PaymentRequest;
 use App\Models\Payment;
 use App\Models\Student;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Inertia\Inertia;
 
@@ -25,7 +26,6 @@ class PaymentController extends Controller
     public function create()
     {
 		$students = Student::select('id', 'name')->get();
-		// dd($students[0]['name']);
 		return Inertia::render('Payment/NewPayment', [
 			'students' => $students
 		]);
@@ -36,7 +36,20 @@ class PaymentController extends Controller
      */
     public function store(Request $request)
     {
-        //
+		$payment = Payment::create([
+			'student_id'      => $request->student_id,
+			'payment_date'    => Carbon::parse(Carbon::now())->format('Y-m-d'),
+			'amount_paid'     => $request->amount_paid,
+			'reference_month' => $request->reference_month,
+			'payment_method'  => $request->payment_method,
+			'notes'           => $request->notes
+        ]);
+
+		$payments = Payment::all();
+
+		return Inertia::render('Payment/Payment', [
+			'status' => $payment, 'payments' => $payments
+		]);
     }
 
     /**

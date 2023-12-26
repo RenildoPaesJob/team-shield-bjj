@@ -19,7 +19,6 @@ return new class extends Migration
 			$table->date('payment_date');
 			$table->decimal('amount_paid', 8, 2);
 			$table->date('reference_month');
-			$table->string('payment_status');
 			$table->string('payment_method');
 			$table->text('notes')->nullable();
 			$table->timestamps();
