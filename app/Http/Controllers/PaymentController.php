@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\PaymentRequest;
 use App\Models\Payment;
 use App\Models\Student;
 use Carbon\Carbon;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Inertia\Inertia;
 
@@ -16,7 +16,7 @@ class PaymentController extends Controller
      */
     public function index()
     {
-        $payments = Payment::all();
+        $payments = Payment::with('student')->get();
 		return Inertia::render('Payment/Payment', compact('payments'));
     }
 
@@ -34,7 +34,7 @@ class PaymentController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(Request $request): RedirectResponse
     {
 		$payment = Payment::create([
 			'student_id'      => $request->student_id,
@@ -45,15 +45,7 @@ class PaymentController extends Controller
 			'notes'           => $request->notes
         ]);
 
-		// $payments = Payment::all();
-		$payments = DB::table('payments')
-            ->join('students', 'students.id', '=', 'payments.students_id')
-            ->select('students.name', 'payments.*')
-            ->get();
-
-		return Inertia::render('Payment/Payment', [
-			'status' => $payment, 'payments' => $payments
-		]);
+		return redirect()->route('payment.index')->with('status', $payment);
     }
 
     /**
