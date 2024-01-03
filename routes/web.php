@@ -36,22 +36,7 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-Route::middleware('auth')->group(function () {
-    Route::get('/student', [StudentController::class, 'index'])->name('student.index');
-    Route::get('/student/new-student', [StudentController::class, 'create'])->name('student.create');
-    Route::get('/student/{id}', [StudentController::class, 'show'])->name('student.show');
-    Route::post('/student', [StudentController::class, 'store'])->name('student.store');
-    Route::put('/student', [StudentController::class, 'edit'])->name('student.update');
-    Route::delete('/student', [StudentController::class, 'destroy'])->name('student.destroy');
-});
-
-Route::middleware('auth')->group(function () {
-    Route::get('/payment', [PaymentController::class, 'index'])->name('payment.index');
-    Route::get('/payment/new-student', [PaymentController::class, 'create'])->name('payment.create');
-    Route::get('/payment/{id}', [PaymentController::class, 'show'])->name('payment.show');
-    Route::post('/payment', [PaymentController::class, 'store'])->name('payment.store');
-    Route::put('/payment', [PaymentController::class, 'edit'])->name('payment.update');
-    Route::delete('/payment', [PaymentController::class, 'destroy'])->name('payment.destroy');
-});
+Route::resource('student', StudentController::class)->middleware('auth');
+Route::resource('payment', PaymentController::class)->middleware('auth');
 
 require __DIR__.'/auth.php';
