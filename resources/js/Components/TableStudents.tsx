@@ -1,15 +1,32 @@
-import { useState } from "react";
-import moment from 'moment';
+import { FormEventHandler, useState } from "react";
 import { PiEyeFill, PiPencilFill } from "react-icons/pi";
-import { FaTrash } from "react-icons/fa";
 import NavLinkSimple from "./NavLinkSimple";
+import { Student } from "@/types/student";
+import { useForm } from "@inertiajs/react";
+import DeleteStudentForm from "@/Pages/Student/DeleteStudentForm";
 
 interface TableProps {
-	array: []
+	array: Student[]
 }
 
 export default function TableStudents({ array }: TableProps) {
 	const [arr, setArr] = useState<any[]>(array)
+	// const {
+	// 	data,
+	// 	setData,
+	// 	delete: destroy,
+	// 	processing,
+	// 	reset,
+	// 	errors,
+	// } = useForm({
+	// 	password: '',
+	// })
+
+	// const deleteUser: FormEventHandler = (e , id) => {
+	// 	e.preventDefault()
+
+	// 	destroy(route('student.destroy', id));
+	// };
 	return (
 		<div className="py-4">
 			<div className="max-w-7xl mx-auto sm:px-6 lg:px-8">
@@ -49,12 +66,7 @@ export default function TableStudents({ array }: TableProps) {
 															href={route('student.edit', {id: item.id})}
 															className="bg-gray-500 p-3 mx-1 text-center justify-center align-middle rounded-md text-2xl hover:bg-yellow-400 hover:text-black transition ease-in-out delay-150 duration-300"
 														/>
-														<NavLinkSimple
-															children={<FaTrash />}
-															title="Deletar Aluno"
-															href="#"
-															className="bg-gray-500 p-3 mx-1 text-center justify-center align-middle rounded-md text-2xl hover:bg-red-600 hover:text-black transition ease-in-out delay-150 duration-300"
-														/>
+														<DeleteStudentForm className="max-w-xl" />
 													</td>
 												</tr>
 											))
@@ -62,7 +74,7 @@ export default function TableStudents({ array }: TableProps) {
 									</tbody>
 								</table>
 								:
-								<h1>Cadastre um novo Aluno!</h1>
+								<h1>Cadastre uma nova Mensalidade!</h1>
 						}
 					</div>
 				</div>
