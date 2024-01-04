@@ -43,7 +43,7 @@ class StudentController extends Controller
 
 		$students = Student::all();
 
-		return Inertia::render('Student/StudentIndex', [
+		return Inertia::render('Student/Student', [
 			'student_name' => $student['name'], 'students' => $students
 		]);
     }
@@ -53,7 +53,10 @@ class StudentController extends Controller
      */
     public function show(string $id)
     {
-        // dd($id);
+		$student = Student::find($id);
+		return Inertia::render('Student/ShowStudent',  [
+			'student' => $student
+		]);
     }
 
     /**
@@ -61,7 +64,10 @@ class StudentController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        $student = Student::find($id);
+		return Inertia::render('Student/EditStudent',  [
+			'dataStudent' => $student
+		]);
     }
 
     /**
@@ -69,7 +75,13 @@ class StudentController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+		dd($id);
+        if(!$student = Student::find($id)){
+			return back();
+		}
+
+		$student->update($request->all(), $id);
+		return redirect()->route('student.index');
     }
 
     /**

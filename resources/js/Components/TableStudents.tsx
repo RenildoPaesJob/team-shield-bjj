@@ -46,7 +46,7 @@ export default function TableStudents({ array }: TableProps) {
 														<NavLinkSimple
 															children={<PiPencilFill />}
 															title="Editar Aluno"
-															href={route('student.show', {id: item.id})}
+															href={route('student.edit', {id: item.id})}
 															className="bg-gray-500 p-3 mx-1 text-center justify-center align-middle rounded-md text-2xl hover:bg-yellow-400 hover:text-black transition ease-in-out delay-150 duration-300"
 														/>
 														<NavLinkSimple

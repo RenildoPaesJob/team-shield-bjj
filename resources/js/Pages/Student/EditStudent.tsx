@@ -6,8 +6,9 @@ import InputLabel from '@/Components/InputLabel';
 import TextInput from '@/Components/TextInput';
 import { FormEventHandler } from 'react';
 import SecondaryButton from '@/Components/SecondaryButton';
+import { Student } from '@/types/student';
 
-export default function EditStudent({ auth, dataStudent }: PageProps) {
+export default function EditStudent({ auth, dataStudent }: PageProps<{ dataStudent: Student[] | any }>) {
 	const { data, setData, post, processing, reset, errors } = useForm({
 		name: '',
 		lastname: '',
@@ -18,12 +19,10 @@ export default function EditStudent({ auth, dataStudent }: PageProps) {
 		graduation: '',
 	})
 
-	// const {} = dataStudent
-
 	const submit: FormEventHandler = (e) => {
 		e.preventDefault()
 
-		post(route('student.edit'))
+		post(route('student.update', dataStudent.id))
 
 		reset()
 	};
@@ -31,7 +30,7 @@ export default function EditStudent({ auth, dataStudent }: PageProps) {
 	return (
 		<AuthenticatedLayout
 			user={auth.user}
-			header={<h2 className="font-semibold text-xl text-gray-800 dark:text-gray-200 leading-tight">🚀 Novo Aluno 🚀</h2>}
+			header={<h2 className="font-semibold text-xl text-gray-800 dark:text-gray-200 leading-tight">🚀 Editar Aluno 🚀</h2>}
 		>
 			<Head title="🚀 Editar Aluno 🚀" />
 
@@ -40,7 +39,7 @@ export default function EditStudent({ auth, dataStudent }: PageProps) {
 					<div className="bg-white dark:bg-gray-800 overflow-hidden shadow-sm sm:rounded-lg">
 						<div className="p-6 text-gray-900 dark:text-gray-100">
 							<div className="dark:text-white">
-								<h1 className="text-center justify-center mb-4 text-2xl">🚀 Novo Aluno 🚀</h1>
+								<h1 className="text-center justify-center mb-4 text-2xl">🚀 Editar Aluno 🚀</h1>
 
 								<form onSubmit={submit}>
 									<div className="flex flex-col px-16">
@@ -50,7 +49,7 @@ export default function EditStudent({ auth, dataStudent }: PageProps) {
 											id="name"
 											type="text"
 											name="name"
-											value={data.name}
+											value={dataStudent.name}
 											placeholder="Digite o nome do aluno"
 											className="text-black text-lg font-medium rounded-md dark:bg-gray-200 mb-3 p-2"
 											autoComplete="username"
@@ -65,7 +64,7 @@ export default function EditStudent({ auth, dataStudent }: PageProps) {
 											type="text"
 											name="lastname"
 											placeholder="Digite o sobrenome do aluno"
-											value={data.lastname}
+											value={dataStudent.lastname}
 											className="text-black text-lg font-medium rounded-md dark:bg-gray-200 mb-3 p-2"
 											autoComplete="lastname"
 											isFocused={true}
@@ -78,7 +77,7 @@ export default function EditStudent({ auth, dataStudent }: PageProps) {
 											id="email"
 											type="email"
 											name="email"
-											value={data.email}
+											value={dataStudent.email}
 											placeholder="Digite o e-mail do aluno"
 											className="text-black text-lg font-medium rounded-md dark:bg-gray-200 mb-3 p-2"
 											autoComplete="email"
@@ -92,7 +91,7 @@ export default function EditStudent({ auth, dataStudent }: PageProps) {
 											id="smartphone"
 											type="text"
 											name="smartphone"
-											value={data.smartphone}
+											value={dataStudent.smartphone}
 											placeholder="Digite o n° celular do aluno"
 											className="text-black text-lg font-medium rounded-md dark:bg-gray-200 mb-3 p-2"
 											autoComplete="smartphone"
@@ -106,7 +105,7 @@ export default function EditStudent({ auth, dataStudent }: PageProps) {
 											id="date_birth"
 											type="date"
 											name="date_birth"
-											value={data.date_birth}
+											value={dataStudent.date_birth}
 											className="text-black text-lg font-medium rounded-md dark:bg-gray-200 mb-3 p-2"
 											autoComplete="date_birth"
 											isFocused={true}
@@ -118,7 +117,7 @@ export default function EditStudent({ auth, dataStudent }: PageProps) {
 										<select
 											id="belt"
 											name="belt"
-											value={data.belt}
+											value={dataStudent.belt}
 											className="rounded-md dark:text-black text-lg mb-3 p-2"
 											autoComplete="belt"
 											onChange={(e) => setData('belt', e.target.value)}
@@ -148,12 +147,11 @@ export default function EditStudent({ auth, dataStudent }: PageProps) {
 										<select
 											id="graduation"
 											name="graduation"
-											value={data.graduation}
+											value={dataStudent.graduation}
 											className="rounded-md dark:text-black text-lg mb-3 p-2"
 											autoComplete="graduation"
 											onChange={(e) => setData('graduation', e.target.value)}
 										>
-											<option value="0" selected>Selecione</option>
 											<option value="1">1°</option>
 											<option value="2">2°</option>
 											<option value="3">3°</option>
