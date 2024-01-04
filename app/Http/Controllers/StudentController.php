@@ -75,12 +75,11 @@ class StudentController extends Controller
      */
     public function update(Request $request, string $id)
     {
-		dd($id);
         if(!$student = Student::find($id)){
 			return back();
 		}
 
-		$student->update($request->all(), $id);
+		$student->update($request->all());
 		return redirect()->route('student.index');
     }
 

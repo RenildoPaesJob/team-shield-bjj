@@ -9,20 +9,20 @@ import SecondaryButton from '@/Components/SecondaryButton';
 import { Student } from '@/types/student';
 
 export default function EditStudent({ auth, dataStudent }: PageProps<{ dataStudent: Student[] | any }>) {
-	const { data, setData, post, processing, reset, errors } = useForm({
-		name: '',
-		lastname: '',
-		email: '',
-		smartphone: '',
-		date_birth: '',
-		belt: '',
-		graduation: '',
+	const { data, setData, patch, processing, reset, errors } = useForm({
+		name: dataStudent.name,
+		lastname: dataStudent.lastname,
+		email: dataStudent.email,
+		smartphone: dataStudent.smartphone,
+		date_birth: dataStudent.date_birth,
+		belt: dataStudent.belt,
+		graduation: dataStudent.graduation,
 	})
 
 	const submit: FormEventHandler = (e) => {
 		e.preventDefault()
 
-		post(route('student.update', dataStudent.id))
+		patch(route('student.update', dataStudent.id))
 
 		reset()
 	};
@@ -49,7 +49,7 @@ export default function EditStudent({ auth, dataStudent }: PageProps<{ dataStude
 											id="name"
 											type="text"
 											name="name"
-											value={dataStudent.name}
+											value={data.name}
 											placeholder="Digite o nome do aluno"
 											className="text-black text-lg font-medium rounded-md dark:bg-gray-200 mb-3 p-2"
 											autoComplete="username"
@@ -64,7 +64,7 @@ export default function EditStudent({ auth, dataStudent }: PageProps<{ dataStude
 											type="text"
 											name="lastname"
 											placeholder="Digite o sobrenome do aluno"
-											value={dataStudent.lastname}
+											value={data.lastname}
 											className="text-black text-lg font-medium rounded-md dark:bg-gray-200 mb-3 p-2"
 											autoComplete="lastname"
 											isFocused={true}
@@ -77,7 +77,7 @@ export default function EditStudent({ auth, dataStudent }: PageProps<{ dataStude
 											id="email"
 											type="email"
 											name="email"
-											value={dataStudent.email}
+											value={data.email}
 											placeholder="Digite o e-mail do aluno"
 											className="text-black text-lg font-medium rounded-md dark:bg-gray-200 mb-3 p-2"
 											autoComplete="email"
@@ -91,7 +91,7 @@ export default function EditStudent({ auth, dataStudent }: PageProps<{ dataStude
 											id="smartphone"
 											type="text"
 											name="smartphone"
-											value={dataStudent.smartphone}
+											value={data.smartphone}
 											placeholder="Digite o n° celular do aluno"
 											className="text-black text-lg font-medium rounded-md dark:bg-gray-200 mb-3 p-2"
 											autoComplete="smartphone"
@@ -105,7 +105,7 @@ export default function EditStudent({ auth, dataStudent }: PageProps<{ dataStude
 											id="date_birth"
 											type="date"
 											name="date_birth"
-											value={dataStudent.date_birth}
+											value={data.date_birth}
 											className="text-black text-lg font-medium rounded-md dark:bg-gray-200 mb-3 p-2"
 											autoComplete="date_birth"
 											isFocused={true}
@@ -117,7 +117,7 @@ export default function EditStudent({ auth, dataStudent }: PageProps<{ dataStude
 										<select
 											id="belt"
 											name="belt"
-											value={dataStudent.belt}
+											value={data.belt}
 											className="rounded-md dark:text-black text-lg mb-3 p-2"
 											autoComplete="belt"
 											onChange={(e) => setData('belt', e.target.value)}
@@ -147,7 +147,7 @@ export default function EditStudent({ auth, dataStudent }: PageProps<{ dataStude
 										<select
 											id="graduation"
 											name="graduation"
-											value={dataStudent.graduation}
+											value={data.graduation}
 											className="rounded-md dark:text-black text-lg mb-3 p-2"
 											autoComplete="graduation"
 											onChange={(e) => setData('graduation', e.target.value)}
