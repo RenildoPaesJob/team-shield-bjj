@@ -11,7 +11,7 @@ class PaymentRequest extends FormRequest
      */
     public function authorize(): bool
     {
-        return false;
+        return true;
     }
 
     /**
@@ -22,7 +22,12 @@ class PaymentRequest extends FormRequest
     public function rules(): array
     {
         return [
-            //
+			'student_id'      => 'required',
+			'payment_date'    => 'required|date',
+			'amount_paid'     => 'required',
+			'reference_month' => 'required|date',
+			'payment_method'  => 'required|string',
+			'notes'           => 'max:255',
         ];
     }
 }

@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\StudentRequest;
 use App\Models\Student;
-use Illuminate\Http\Request;
 use Inertia\Inertia;
 
 class StudentController extends Controller
@@ -43,7 +42,7 @@ class StudentController extends Controller
 
 		$students = Student::all();
 
-		return Inertia::render('Student/Student', [
+		return Inertia::render('Student/StudentIndex', [
 			'student_name' => $student['name'], 'students' => $students
 		]);
 	}
@@ -73,7 +72,7 @@ class StudentController extends Controller
 	/**
 	 * Update the specified resource in storage.
 	 */
-	public function update(Request $request, string $id)
+	public function update(StudentRequest $request, string $id)
 	{
 		if (!$student = Student::find($id)) {
 			return back();

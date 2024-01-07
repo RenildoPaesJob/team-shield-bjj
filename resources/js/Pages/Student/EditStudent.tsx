@@ -57,7 +57,7 @@ export default function EditStudent({ auth, dataStudent }: PageProps<{ dataStude
 											isFocused={true}
 											onChange={(e) => setData('name', e.target.value)}
 										/>
-										<InputError message={errors.name} className="mt-2" />
+										<InputError message={errors.name} className="mb-3" />
 
 										<InputLabel htmlFor="lastname" value="Sobrenome" className="text-xl" />
 										<TextInput
@@ -71,7 +71,7 @@ export default function EditStudent({ auth, dataStudent }: PageProps<{ dataStude
 											isFocused={true}
 											onChange={(e) => setData('lastname', e.target.value)}
 										/>
-										<InputError message={errors.lastname} className="mt-2" />
+										<InputError message={errors.lastname} className="mb-3" />
 
 										<InputLabel htmlFor="email" value="E-mail" className="text-xl" />
 										<TextInput
@@ -85,7 +85,7 @@ export default function EditStudent({ auth, dataStudent }: PageProps<{ dataStude
 											isFocused={true}
 											onChange={(e) => setData('email', e.target.value)}
 										/>
-										<InputError message={errors.email} className="mt-2" />
+										<InputError message={errors.email} className="mb-3" />
 
 										<InputLabel htmlFor="smartphone" value="Celular" className="text-xl" />
 										<TextInput
@@ -99,7 +99,7 @@ export default function EditStudent({ auth, dataStudent }: PageProps<{ dataStude
 											isFocused={true}
 											onChange={(e) => setData('smartphone', e.target.value)}
 										/>
-										<InputError message={errors.smartphone} className="mt-2" />
+										<InputError message={errors.smartphone} className="mb-3" />
 
 										<InputLabel htmlFor="date_birth" value="Data de Nascimento" className="text-xl" />
 										<TextInput
@@ -112,7 +112,7 @@ export default function EditStudent({ auth, dataStudent }: PageProps<{ dataStude
 											isFocused={true}
 											onChange={(e) => setData('date_birth', e.target.value)}
 										/>
-										<InputError message={errors.date_birth} className="mt-2" />
+										<InputError message={errors.date_birth} className="mb-3" />
 
 										<InputLabel htmlFor="belt" value="Faixa" className="text-xl" />
 										<select
@@ -142,7 +142,7 @@ export default function EditStudent({ auth, dataStudent }: PageProps<{ dataStude
 											<option value="Marrom">Marrom</option>
 											<option value="Preta">Preta</option>
 										</select>
-										<InputError message={errors.belt} className="mt-2" />
+										<InputError message={errors.belt} className="mb-3" />
 
 										<InputLabel htmlFor="graduation" value="Grau" className="text-xl" />
 										<select
@@ -163,7 +163,7 @@ export default function EditStudent({ auth, dataStudent }: PageProps<{ dataStude
 											<option value="8">8°</option>
 											<option value="9">9°</option>
 										</select>
-										<InputError message={errors.graduation} className="mt-2" />
+										<InputError message={errors.graduation} className="mb-3" />
 
 										<div className="py-2 justify-end flex mb-4">
 											<NavLinkSimple

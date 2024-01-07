@@ -73,7 +73,7 @@ export default function NewPayment({ auth, students }: PageProps<{ students: Stu
 											isFocused={true}
 											onChange={(e) => setData('amount_paid', e.target.value.replace(',','.'))}
 										/>
-										<InputError message={errors.amount_paid} className='mt-2' />
+										<InputError message={errors.amount_paid} className='mb-3' />
 									</div>
 
 									<div className='mr-4'>
@@ -88,7 +88,7 @@ export default function NewPayment({ auth, students }: PageProps<{ students: Stu
 											isFocused={true}
 											onChange={(e) => setData('reference_month', e.target.value)}
 										/>
-										<InputError message={errors.reference_month} className='mt-2' />
+										<InputError message={errors.reference_month} className='mb-3' />
 									</div>
 
 									<div className='mr-4'>

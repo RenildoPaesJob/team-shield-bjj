@@ -6,7 +6,6 @@ use App\Models\Payment;
 use App\Models\Student;
 use Carbon\Carbon;
 use Illuminate\Http\RedirectResponse;
-use Illuminate\Http\Request;
 use Inertia\Inertia;
 
 class PaymentController extends Controller
@@ -34,7 +33,7 @@ class PaymentController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request): RedirectResponse
+    public function store(PaymentRequest $request): RedirectResponse
     {
 		$payment = Payment::create([
 			'student_id'      => $request->student_id,
@@ -73,7 +72,7 @@ class PaymentController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(PaymentRequest $request, string $id)
     {
         //
     }

@@ -23,14 +23,29 @@ class StudentRequest extends FormRequest
 	 */
 	public function rules(): array
 	{
-		return [
+		$rules =  [
 			'name'        => 'required|string|min:3|max:150',
 			'lastname'    => 'required|string|min:3|max:150',
-			'email'       => 'required|string|lowercase|email|min:3|max:255',   //['required', 'string', 'lowercase', 'email', 'max:255', Rule::unique(User::class)->ignore($this->user()->id)],
+			'email'       => 'required|string|lowercase|email|unique:students,email|min:3|max:255',
 			'smarthphone' => 'string|min:9|max:12',
 			'date_birth'  => 'required|date',
-			'belt'        => 'required|string|min:3|max:55',
-			// 'graduation' => 'required|string|min:3|max:3'
+			'belt'        => 'required|string|min:3|max:65',
 		];
+
+		if ($this->method() === 'PUT' || $this->method() === 'PATCH') {
+			$rules['email'] =  [
+				'email' => [
+					'required',
+					'string',
+					'lowercase',
+					'email',
+					'min:3',
+					'max:255',
+					Rule::unique('students')->ignore($this->id)
+				]
+			];
+		}
+
+		return $rules;
 	}
 }
