@@ -26,7 +26,7 @@ class StudentRequest extends FormRequest
 		return [
 			'name'        => 'required|string|min:3|max:150',
 			'lastname'    => 'required|string|min:3|max:150',
-			'email'       => 'required|string|lowercase|email|min:3|max:255',//['required', 'string', 'lowercase', 'email', 'max:255', Rule::unique(User::class)->ignore($this->user()->id)],
+			'email'       => 'required|string|lowercase|email|min:3|max:255',   //['required', 'string', 'lowercase', 'email', 'max:255', Rule::unique(User::class)->ignore($this->user()->id)],
 			'smarthphone' => 'string|min:9|max:12',
 			'date_birth'  => 'required|date',
 			'belt'        => 'required|string|min:3|max:55',
