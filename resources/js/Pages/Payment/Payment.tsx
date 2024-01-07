@@ -15,7 +15,7 @@ export default function Payment({ auth, payments }: PageProps<{ payments: Paymen
 					<NavLinkSimple
 						href={route('payment.create')}
 						children='Novo'
-						className='p-2 bg-cyan-300 rounded-md hover:bg-cyan-300 hover:text-black transition ease-in-out delay-150 duration-300'
+						className='p-2 rounded-md hover:bg-cyan-500 hover:text-black transition ease-in-out delay-150 duration-300'
 					/>
 				</div>
 			}

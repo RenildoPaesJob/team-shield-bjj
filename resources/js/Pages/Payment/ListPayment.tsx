@@ -1,18 +1,22 @@
-import NavLinkSimple from "@/Components/NavLinkSimple";
-import { Payments } from "@/types/payment";
-import { FaTrash } from "react-icons/fa";
 import { PiEyeFill, PiPencilFill } from "react-icons/pi";
+
+import { Payments } from "@/types/payment";
+import NavLinkSimple from "@/Components/NavLinkSimple";
+import DeleteForm from "@/Components/DeleteForm";
+
+import moment from "moment";
 
 interface ListPaymentProps {
 	array: Payments[]
 }
+
 export default function ListPayment({ array }: ListPaymentProps) {
 	console.log(array)
 	return (
 		<div className="py-4">
 			<div className="max-w-7xl mx-auto sm:px-6 lg:px-8">
 				<div className="bg-white dark:bg-gray-800 overflow-hidden shadow-sm sm:rounded-lg">
-					<div className="p-6 text-gray-900 dark:text-gray-100 ">
+					<div className="p-6 text-gray-900 dark:text-gray-100">
 						{
 							array.length > 0 ?
 								<table className="sm:w-auto md:w-full">
@@ -32,26 +36,25 @@ export default function ListPayment({ array }: ListPaymentProps) {
 													<td className="p-2">{item.student.name}</td>
 													<td className="p-2">{item.student.email}</td>
 													<td className="p-2">{item.student.smartphone}</td>
-													{/* <td className="p-2">{moment(item.date_birth).format("DD/MM/YYYY")}</td> */}
-													<td className="p-2">{item.student.belt}</td>
+													<td className="p-2">{moment(item.payment_date).format("DD/MM/YYYY")}</td>
 													<td className="p-2">
 														<NavLinkSimple
 															href={route('student.show', { id: item.id })}
 															title="Ver Aluno"
 															children={<PiEyeFill />}
-															className="bg-gray-500 p-3 mx-1 children-center justify-center align-middle rounded-md text-2xl hover:bg-cyan-400 hover:text-black transition ease-in-out delay-150 duration-300"
+															className="bg-gray-500 p-3 mx-1 children-center justify-center align-middle rounded-md text-xl hover:bg-cyan-400 hover:text-black transition ease-in-out delay-150 duration-300"
 														/>
 														<NavLinkSimple
 															children={<PiPencilFill />}
 															title="Editar Aluno"
 															href={route('student.show', { id: item.id })}
-															className="bg-gray-500 p-3 mx-1 text-center justify-center align-middle rounded-md text-2xl hover:bg-yellow-400 hover:text-black transition ease-in-out delay-150 duration-300"
+															className="bg-gray-500 p-3 mx-1 text-center justify-center align-middle rounded-md text-xl hover:bg-yellow-400 hover:text-black transition ease-in-out delay-150 duration-300"
 														/>
-														<NavLinkSimple
-															children={<FaTrash />}
-															title="Deletar Aluno"
-															href="#"
-															className="bg-gray-500 p-3 mx-1 text-center justify-center align-middle rounded-md text-2xl hover:bg-red-600 hover:text-black transition ease-in-out delay-150 duration-300"
+														<DeleteForm
+															title="Tem certeza que deseja excluir este Pagamento?"
+															url="student.destroy"
+															id={item.id}
+															className="max-w-xl"
 														/>
 													</td>
 												</tr>
@@ -60,7 +63,7 @@ export default function ListPayment({ array }: ListPaymentProps) {
 									</tbody>
 								</table>
 								:
-								<h1>Cadastre um novo Aluno!</h1>
+								<h1>Cadastre uma nova Mensalidade!</h1>
 						}
 					</div>
 				</div>

@@ -7,6 +7,7 @@ import TextInput from '@/Components/TextInput';
 import { FormEventHandler } from 'react';
 import SecondaryButton from '@/Components/SecondaryButton';
 import { Student } from '@/types/student';
+import NavLinkSimple from '@/Components/NavLinkSimple';
 
 export default function EditStudent({ auth, dataStudent }: PageProps<{ dataStudent: Student[] | any }>) {
 	const { data, setData, patch, processing, reset, errors } = useForm({
@@ -165,8 +166,13 @@ export default function EditStudent({ auth, dataStudent }: PageProps<{ dataStude
 										<InputError message={errors.graduation} className="mt-2" />
 
 										<div className="py-2 justify-end flex mb-4">
+											<NavLinkSimple
+												href={route('student.index')}
+												children='Voltar'
+												className='mr-2 hover:bg-yellow-400 dark:hover:text-black text-xl'
+											/>
 											<SecondaryButton
-												className="hover:bg-green-500 text-xl"
+												className="dark:hover:text-black hover:bg-green-500 text-xl"
 												type="submit"
 											>
 												Salvar

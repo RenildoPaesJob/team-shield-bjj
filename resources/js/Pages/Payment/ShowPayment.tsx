@@ -8,7 +8,7 @@ import TextInput from '@/Components/TextInput';
 import { Student } from '@/types/student';
 import NavLinkSimple from '@/Components/NavLinkSimple';
 
-export default function ShowStudent({ auth, student }: PageProps<{ student: Student[] | any }>) {
+export default function ShowPayment({ auth, student }: PageProps<{ student: Student[] | any }>) {
 
 	return (
 		<AuthenticatedLayout
