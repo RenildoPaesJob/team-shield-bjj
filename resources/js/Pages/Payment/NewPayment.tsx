@@ -102,8 +102,8 @@ export default function NewPayment({ auth, students }: PageProps<{ students: Stu
 											onChange={(e) => setData('payment_method', e.target.value)}
 										>
 											<option value='0' selected>Selecione</option>
-											<option value='pix'>Pix</option>
-											<option value='card'>Cartão</option>
+											<option value='PIX'>PIX</option>
+											<option value='CARTÃO'>CARTÃO</option>
 										</select>
 									</div>
 								</div>

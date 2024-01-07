@@ -53,7 +53,10 @@ class PaymentController extends Controller
      */
     public function show(string $id)
     {
-        //
+        $payment = Payment::with('student')->find($id);
+		return Inertia::render('Payment/ShowPayment',  [
+			'payment' => $payment
+		]);
     }
 
     /**

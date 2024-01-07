@@ -39,20 +39,20 @@ export default function ListPayment({ array }: ListPaymentProps) {
 													<td className="p-2">{moment(item.payment_date).format("DD/MM/YYYY")}</td>
 													<td className="p-2">
 														<NavLinkSimple
-															href={route('student.show', { id: item.id })}
-															title="Ver Aluno"
+															href={route('payment.show', { id: item.id })}
+															title="Ver Payment"
 															children={<PiEyeFill />}
 															className="bg-gray-500 p-3 mx-1 children-center justify-center align-middle rounded-md text-xl hover:bg-cyan-400 hover:text-black transition ease-in-out delay-150 duration-300"
 														/>
 														<NavLinkSimple
 															children={<PiPencilFill />}
-															title="Editar Aluno"
-															href={route('student.show', { id: item.id })}
+															title="Editar Payment"
+															href={route('payment.show', { id: item.id })}
 															className="bg-gray-500 p-3 mx-1 text-center justify-center align-middle rounded-md text-xl hover:bg-yellow-400 hover:text-black transition ease-in-out delay-150 duration-300"
 														/>
 														<DeleteForm
 															title="Tem certeza que deseja excluir este Pagamento?"
-															url="student.destroy"
+															url="payment.destroy"
 															id={item.id}
 															className="max-w-xl"
 														/>

@@ -8,6 +8,8 @@ import TextInput from '@/Components/TextInput';
 import { Student } from '@/types/student';
 import NavLinkSimple from '@/Components/NavLinkSimple';
 
+import moment from 'moment';
+
 export default function ShowStudent({ auth, student }: PageProps<{ student: Student[] | any }>) {
 
 	return (
@@ -62,7 +64,7 @@ export default function ShowStudent({ auth, student }: PageProps<{ student: Stud
 									<TextInput
 										type="date"
 										name="date_birth"
-										value={student.date_birth}
+										value={moment(student.date_birth).format("DD/MM/YYYY")}
 										className="text-black text-lg font-medium rounded-md dark:bg-gray-200 mb-3 p-2"
 									/>
 
