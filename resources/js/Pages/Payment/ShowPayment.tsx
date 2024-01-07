@@ -10,7 +10,6 @@ import { Payments } from '@/types/payment';
 import moment from 'moment';
 
 export default function ShowPayment({ auth, payment }: PageProps<{ payment: Payments[] | any }>) {
-	console.log('payment:', payment)
 
 	return (
 		<AuthenticatedLayout
