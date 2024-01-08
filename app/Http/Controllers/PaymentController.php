@@ -4,12 +4,17 @@ namespace App\Http\Controllers;
 
 use App\Models\Payment;
 use App\Models\Student;
+use App\Services\PaymentService;
 use Carbon\Carbon;
 use Illuminate\Http\RedirectResponse;
 use Inertia\Inertia;
 
 class PaymentController extends Controller
 {
+	// public function __construct(
+	// 	protected PaymentService $service
+	// ){}
+
     /**
      * Display a listing of the resource.
      */

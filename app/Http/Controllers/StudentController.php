@@ -2,18 +2,25 @@
 
 namespace App\Http\Controllers;
 
+use App\DTO\CreateStudentDTO;
+use App\DTO\UpdateStudentDTO;
 use App\Http\Requests\StudentRequest;
-use App\Models\Student;
+use App\Services\StudentServices;
+use GuzzleHttp\Psr7\Request;
 use Inertia\Inertia;
 
 class StudentController extends Controller
 {
+	public function __construct(
+		protected StudentServices $service
+	) { }
 	/**
 	 * Display a listing of the resource.
 	 */
-	public function index()
+	public function index(Request $request)
 	{
-		$students = Student::all();
+		$students = $this->service->getAll($request->filter);
+		dd($students);
 		return Inertia::render('Student/StudentIndex', compact('students'));
 	}
 
@@ -30,20 +37,14 @@ class StudentController extends Controller
 	 */
 	public function store(StudentRequest $request)
 	{
-		$student = Student::create([
-			'name'       => $request->name,
-			'lastname'   => $request->lastname,
-			'email'      => $request->email,
-			'smartphone' => $request->smartphone,
-			'date_birth' => $request->date_birth,
-			'belt'       => $request->belt,
-			'graduation' => $request->graduation
-		]);
+		$this->service->new(
+			CreateStudentDTO::makeFromRequest($request)
+		);
 
-		$students = Student::all();
+		$students = $this->service->getAll();
 
 		return Inertia::render('Student/StudentIndex', [
-			'student_name' => $student['name'], 'students' => $students
+			'students' => $students
 		]);
 	}
 
@@ -52,8 +53,11 @@ class StudentController extends Controller
 	 */
 	public function show(string $id)
 	{
-		$student = Student::find($id);
-		return Inertia::render('Student/ShowStudent',  [
+		if (!$student = $this->service->findOne($id)) {
+			return Inertia::render('Student/StudentIndex');
+		};
+
+		return Inertia::render('Student/ShowStudent', [
 			'student' => $student
 		]);
 	}
@@ -63,7 +67,10 @@ class StudentController extends Controller
 	 */
 	public function edit(string $id)
 	{
-		$student = Student::find($id);
+		if (!$student = $this->service->findOne($id)) {
+			return Inertia::render('Student/StudentIndex');
+		}
+
 		return Inertia::render('Student/EditStudent',  [
 			'dataStudent' => $student
 		]);
@@ -74,11 +81,14 @@ class StudentController extends Controller
 	 */
 	public function update(StudentRequest $request, string $id)
 	{
-		if (!$student = Student::find($id)) {
+		$student = $this->service->update(
+			UpdateStudentDTO::makeFromRequest($request)
+		);
+
+		if (!$student) {
 			return back();
 		}
 
-		$student->update($request->all());
 		return redirect()->route('student.index');
 	}
 
@@ -87,11 +97,8 @@ class StudentController extends Controller
 	 */
 	public function destroy(string $id)
 	{
-		if (!$student = Student::find($id)){
-			return back();
-		}
+		$this->service->delete($id);
 
-		$student->delete();
 		return redirect()->route('student.index');
 	}
 }
