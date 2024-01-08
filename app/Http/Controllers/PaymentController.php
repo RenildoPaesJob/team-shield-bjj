@@ -25,12 +25,6 @@ class PaymentController extends Controller
     {
 		$payments = $this->service->getAll($request->filter);
 		return Inertia::render('Payment/Payment', compact('payments'));
-        // // $payments = Payment::with('student')->get();
-        // $payments = $this->service->getAll($request->filter);
-		// // dd($payments);
-		// return Inertia::render('Payment/Payment', [
-		// 	'payments' => $payments
-		// ]);
     }
 
     /**
