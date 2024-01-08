@@ -3,15 +3,15 @@
 namespace App\Services;
 
 use App\DTO\CreatePaymentDTO;
+use App\Repositories\PaymentRepositoryInterface;
 use stdClass;
 
 class PaymentService
 {
-	protected $repository;
 
-	public function __construct()
-	{
-		# code...
+	public function __construct(
+		protected PaymentRepositoryInterface $repository
+	) {
 	}
 
 	public function getAll(String $filter = null): array

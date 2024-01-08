@@ -3,8 +3,8 @@
 namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;
-use App\Repositories\{StudentRepositoryInterface};
-use App\Repositories\{StudentEloquentORM};
+use App\Repositories\{PaymentEloquentORM, PaymentRepositoryInterface};
+use App\Repositories\{StudentRepositoryInterface, StudentEloquentORM};
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -16,6 +16,11 @@ class AppServiceProvider extends ServiceProvider
         $this->app->bind(
 			StudentRepositoryInterface::class,
 			StudentEloquentORM::class
+		);
+
+		$this->app->bind(
+			PaymentRepositoryInterface::class,
+			PaymentEloquentORM::class
 		);
     }
 

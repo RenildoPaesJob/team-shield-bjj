@@ -23,11 +23,11 @@ class PaymentRequest extends FormRequest
     {
         return [
 			'student_id'      => 'required',
-			'payment_date'    => 'required|date',
+			// 'payment_date'    => 'required|date',
 			'amount_paid'     => 'required',
 			'reference_month' => 'required|date',
 			'payment_method'  => 'required|string',
-			'notes'           => 'max:255',
+			'notes'           => 'nullable|max:255',
         ];
     }
 }

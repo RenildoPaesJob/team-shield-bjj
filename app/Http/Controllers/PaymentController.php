@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\DTO\CreatePaymentDTO;
+use App\Http\Requests\PaymentRequest;
 use App\Models\Payment;
 use App\Models\Student;
 use App\Services\PaymentService;
@@ -11,16 +13,17 @@ use Inertia\Inertia;
 
 class PaymentController extends Controller
 {
-	// public function __construct(
-	// 	protected PaymentService $service
-	// ){}
+	public function __construct(
+		protected PaymentService $service
+	){}
 
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        $payments = Payment::with('student')->get();
+        // $payments = Payment::with('student')->get();
+        $payments = $this->service->getAll();
 		return Inertia::render('Payment/Payment', compact('payments'));
     }
 
@@ -40,16 +43,12 @@ class PaymentController extends Controller
      */
     public function store(PaymentRequest $request): RedirectResponse
     {
-		$payment = Payment::create([
-			'student_id'      => $request->student_id,
-			'payment_date'    => Carbon::parse(Carbon::now())->format('Y-m-d'),
-			'amount_paid'     => $request->amount_paid,
-			'reference_month' => $request->reference_month,
-			'payment_method'  => $request->payment_method,
-			'notes'           => $request->notes
-        ]);
+		$request->payment_date = Carbon::parse(Carbon::now())->format('Y-m-d');
+		$this->service->new(
+			CreatePaymentDTO::makeFromRequest($request)
+		);
 
-		return redirect()->route('payment.index')->with('status', $payment);
+		return redirect()->route('payment.index');
     }
 
     /**
