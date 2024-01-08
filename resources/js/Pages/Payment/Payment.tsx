@@ -6,6 +6,7 @@ import { Payments } from '@/types/payment';
 import ListPayment from "@/Pages/Payment/ListPayment";
 
 export default function Payment({ auth, payments }: PageProps<{ payments: Payments[] }>) {
+	//console.log('🚀 ~ file: Payment.tsx:9 ~ Payment ~ payments:', payments)
 	return (
 		<AuthenticatedLayout
 			user={auth.user}

@@ -9,6 +9,7 @@ use App\Models\Student;
 use App\Services\PaymentService;
 use Carbon\Carbon;
 use Illuminate\Http\RedirectResponse;
+use Illuminate\Http\Request;
 use Inertia\Inertia;
 
 class PaymentController extends Controller
@@ -20,11 +21,16 @@ class PaymentController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(Request $request)
     {
-        // $payments = Payment::with('student')->get();
-        $payments = $this->service->getAll();
+		$payments = $this->service->getAll($request->filter);
 		return Inertia::render('Payment/Payment', compact('payments'));
+        // // $payments = Payment::with('student')->get();
+        // $payments = $this->service->getAll($request->filter);
+		// // dd($payments);
+		// return Inertia::render('Payment/Payment', [
+		// 	'payments' => $payments
+		// ]);
     }
 
     /**

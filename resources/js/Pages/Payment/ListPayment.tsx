@@ -1,11 +1,10 @@
-import { PiEyeFill, PiPencilFill } from "react-icons/pi";
+import { PiEyeFill } from "react-icons/pi";
 
 import { Payments } from "@/types/payment";
 import NavLinkSimple from "@/Components/NavLinkSimple";
 import DeleteForm from "@/Components/DeleteForm";
 
 import moment from "moment";
-
 interface ListPaymentProps {
 	array: Payments[]
 }
