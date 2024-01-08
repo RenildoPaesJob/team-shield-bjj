@@ -6,7 +6,7 @@ use App\DTO\CreateStudentDTO;
 use App\DTO\UpdateStudentDTO;
 use App\Http\Requests\StudentRequest;
 use App\Services\StudentServices;
-use GuzzleHttp\Psr7\Request;
+use Illuminate\Http\Request;
 use Inertia\Inertia;
 
 class StudentController extends Controller
@@ -20,7 +20,6 @@ class StudentController extends Controller
 	public function index(Request $request)
 	{
 		$students = $this->service->getAll($request->filter);
-		dd($students);
 		return Inertia::render('Student/StudentIndex', compact('students'));
 	}
 
@@ -97,7 +96,7 @@ class StudentController extends Controller
 	 */
 	public function destroy(string $id)
 	{
-		$this->service->delete($id);
+		$this->service->remove($id);
 
 		return redirect()->route('student.index');
 	}

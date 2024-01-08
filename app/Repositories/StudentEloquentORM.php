@@ -1,9 +1,12 @@
 <?php
 
+namespace App\Repositories;
+
 use App\DTO\CreateStudentDTO;
 use App\DTO\UpdateStudentDTO;
 use App\Repositories\StudentRepositoryInterface;
 use App\Models\Student;
+use stdClass;
 
 class StudentEloquentORM implements StudentRepositoryInterface
 {
@@ -12,7 +15,7 @@ class StudentEloquentORM implements StudentRepositoryInterface
 	) {
 	}
 
-	public function getAll(string $filter): array
+	public function getAll(string $filter = null): array
 	{
 		return $this->model
 					->where(function ($query) use ($filter){
@@ -21,7 +24,7 @@ class StudentEloquentORM implements StudentRepositoryInterface
 							$query->orWhere('email', 'like', "%$filter%");
 						}
 					})
-					->all()
+					->get()
 					->toArray();
 	}
 
@@ -36,7 +39,7 @@ class StudentEloquentORM implements StudentRepositoryInterface
 
 	public function remove(string $id): void
 	{
-		return $this->model->findOrFail($id)->delete();
+		$this->model->findOrFail($id)->delete();
 	}
 
 	public function new(CreateStudentDTO $dto): stdClass

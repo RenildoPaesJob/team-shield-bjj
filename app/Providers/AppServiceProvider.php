@@ -2,9 +2,9 @@
 
 namespace App\Providers;
 
-use App\Repositories\StudentRepositoryInterface;
 use Illuminate\Support\ServiceProvider;
-use StudentEloquentORM;
+use App\Repositories\{StudentRepositoryInterface};
+use App\Repositories\{StudentEloquentORM};
 
 class AppServiceProvider extends ServiceProvider
 {
