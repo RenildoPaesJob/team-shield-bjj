@@ -1,7 +1,7 @@
 FROM php:8.2-fpm
 
 # set your user name, ex: user=carlos
-ARG user=renildopaes
+ARG user=rp-deploy
 ARG uid=1000
 
 # Install system dependencies
