@@ -12,7 +12,7 @@ class CreatePaymentDTO
 		public string $amount_paid,
 		public string $reference_month,
 		public string $payment_method,
-		public string $notes
+		public string|null $notes
 	) { }
 
 	public static function makeFromRequest(PaymentRequest $request): self

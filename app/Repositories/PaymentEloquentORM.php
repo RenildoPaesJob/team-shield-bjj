@@ -36,14 +36,6 @@ class PaymentEloquentORM implements PaymentRepositoryInterface
 	{
 		$student = $this->model->create(
 			(array) $dto,
-			Payment::create([
-				'student_id'      => $request->student_id,
-				'payment_date'    => Carbon::parse(Carbon::now())->format('Y-m-d'),
-				'amount_paid'     => $request->amount_paid,
-				'reference_month' => $request->reference_month,
-				'payment_method'  => $request->payment_method,
-				'notes'           => $request->notes
-			])
 		);
 
 		return (object) $student->toArray();

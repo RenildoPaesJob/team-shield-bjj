@@ -50,12 +50,12 @@ export default function ListPayment({ array }: ListPaymentProps) {
 															href={route('payment.edit', { id: item.id })}
 															className="bg-gray-500 p-3 mx-1 text-center justify-center align-middle rounded-md text-xl hover:bg-yellow-400 hover:text-black transition ease-in-out delay-150 duration-300"
 														/> */}
-														<DeleteForm
+														{/* <DeleteForm
 															title="Tem certeza que deseja excluir este Pagamento?"
 															url="payment.destroy"
 															id={item.id}
 															className="max-w-xl"
-														/>
+														/> */}
 													</td>
 												</tr>
 											))

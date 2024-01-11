@@ -81,7 +81,7 @@ class StudentController extends Controller
 	public function update(StudentRequest $request, string $id)
 	{
 		$student = $this->service->update(
-			UpdateStudentDTO::makeFromRequest($request)
+			UpdateStudentDTO::makeFromRequest($request, $id)
 		);
 
 		if (!$student) {

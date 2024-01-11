@@ -17,10 +17,10 @@ class UpdateStudentDTO
 		public string $graduation
 	) { }
 
-	public static function makeFromRequest(StudentRequest $request): self
+	public static function makeFromRequest(StudentRequest $request, $id): self
 	{
 		return new self(
-			$request->id,
+			$id,
 			$request->name,
 			$request->lastname,
 			$request->email,
