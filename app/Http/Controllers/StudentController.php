@@ -41,6 +41,7 @@ class StudentController extends Controller
 		);
 
 		$students = $this->service->getAll();
+		
 
 		return Inertia::render('Student/StudentIndex', [
 			'students' => $students
