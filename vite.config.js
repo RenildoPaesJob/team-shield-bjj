@@ -12,11 +12,11 @@ export default defineConfig({
 	],
 	watch: {
 		usePolling: true,
-		origin: 'http://lcoalhost'
+		origin: 'http://equipeescudobjj.com.br'
 	},
 	server: {
 		hmr: {
-			host: 'localhost'
+			host: '165.227.181.214'
 		},
 		host: true,
 		port: 3000,
